@@ -56,7 +56,7 @@ export default function NewHeroSection() {
                 github: "https://github.com/deepak-5",
                 linkedin: "https://www.linkedin.com/in/deepak-ac/",
                 resume:
-                  "https://drive.google.com/file/d/1MM_E5B_yGZlQ7Tl8wWPmf_PmBp0gVCT2/view",
+                  "https://drive.google.com/file/d/1Mlj0N57oBI6IZEofpFriZ0Zkwj0mezsk/view?usp=sharing",
               }}
             />
           </Reveal>
