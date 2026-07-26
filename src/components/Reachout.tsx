@@ -3,7 +3,6 @@ import Image from "next/image";
 import { FaGithub, FaLinkedin, FaPaperclip, FaXTwitter } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
 import NeumorphButton from "./NeumorphButton";
-import { VisitorCount } from "./VisitorCount";
 import { Tooltip } from "./ui/tooltip-card";
 
 interface ReachoutProps {
@@ -229,7 +228,6 @@ export default function Reachout({
             <div className="text-sm sm:text-md dark:text-white/40 text-black/40">
               © {new Date().getFullYear()} Deepak AC.
             </div>
-            <VisitorCount className="text-sm sm:text-md dark:text-white/40 text-black/40" />
           </div>
         </div>
       </div>

@@ -1,10 +1,9 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowUpRight, ChevronDown, ChevronUp, GitMerge } from 'lucide-react'
-import { fallbackContributions } from '@/lib/github'
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip'
 
 interface Contribution {
@@ -17,33 +16,38 @@ interface Contribution {
   state?: 'open' | 'closed' | 'merged'
 }
 
-
+const contributions: Contribution[] = [
+  {
+    title: "feat(mem0): add complete mcp server with mem0 API integration",
+    description: "Added mem0 MCP integration to the Klavis AI ecosystem, contributing to tools that other developers actually use.",
+    repository: "Klavis-AI",
+    link: "https://github.com/Klavis-AI/klavis/pull/251",
+    date: "2025",
+    type: "feature",
+    state: "merged"
+  },
+  {
+    title: "feat: add express.js support to CLI",
+    description: "Added express.js support to the billingsdk CLI, contributing to tools that other developers actually use.",
+    repository: "dodopayments",
+    link: "https://github.com/dodopayments/billingsdk/pull/103",
+    date: "2025",
+    type: "feature",
+    state: "merged"
+  },
+  {
+    title: "feat: interactive component playground",
+    description: "Added an interactive component playground to the Dodopayments billingsdk.",
+    repository: "dodopayments",
+    link: "https://github.com/dodopayments/billingsdk/pull/96",
+    date: "2025",
+    type: "feature",
+    state: "merged"
+  }
+]
 
 export default function OpenSourceContributionsCard() {
   const [showAll, setShowAll] = useState(false)
-  const [contributions, setContributions] = useState<Contribution[]>(fallbackContributions)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    const loadContributions = async () => {
-      try {
-        setLoading(true)
-        
-        const response = await fetch('/api/github-contributions?username=KartikLabhshetwar&limit=50')
-        const data = await response.json()
-        
-        if (data.success && data.contributions.length > 0) {
-          setContributions(data.contributions)
-        }
-      } catch (error) {
-        console.error('Failed to load GitHub contributions:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    loadContributions()
-  }, [])
 
   const displayedContributions = showAll ? contributions : contributions.slice(0, 3)
 
@@ -54,27 +58,7 @@ export default function OpenSourceContributionsCard() {
       transition={{ duration: 0.6 }}
       className="rounded-lg bg-white dark:bg-zinc-900 p-3 sm:p-6"
     >
-      {loading ? (
-        <div className="space-y-4">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="animate-pulse">
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="h-4 bg-neutral-200 dark:bg-neutral-700 rounded w-3/4"></div>
-                    <div className="h-3 bg-neutral-200 dark:bg-neutral-700 rounded w-12"></div>
-                  </div>
-                  <div className="h-3 bg-neutral-200 dark:bg-neutral-700 rounded w-full mb-2"></div>
-                  <div className="h-3 bg-neutral-200 dark:bg-neutral-700 rounded w-2/3"></div>
-                </div>
-                <div className="w-8 h-8 bg-neutral-200 dark:bg-neutral-700 rounded"></div>
-              </div>
-              {i < 3 && <div className="mt-4 border-b border-neutral-300 dark:border-[#2E2E2E]" />}
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="space-y-4 group">
+      <div className="space-y-4 group">
           {displayedContributions.map((contribution, index) => (
           <motion.div
             key={contribution.title}
@@ -123,11 +107,9 @@ export default function OpenSourceContributionsCard() {
           </motion.div>
           ))}
         </div>
-      )}
-
 
       {/* Show More/Less Toggle */}
-      {!loading && contributions.length > 3 && (
+      {contributions.length > 3 && (
         <div className="mt-4 pt-4 border-t border-neutral-300 dark:border-[#2E2E2E]">
           <button
             onClick={() => setShowAll(!showAll)}
