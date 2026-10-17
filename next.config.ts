@@ -1,9 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-    eslint: {
-    ignoreDuringBuilds: true,
-  },
+  allowedDevOrigins: ["*.e2b.app", "localhost", "127.0.0.1"],
   env: {
     GITHUB_TOKEN: process.env.GITHUB_TOKEN,
   },

@@ -13,12 +13,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
   if (!blog) {
     return {
-      title: 'Blog Post Not Found',
+      title: 'Blog Post Not Found | Deepak A C',
     }
   }
   
   return {
-    title: `${blog.title} | Kartik Labhshetwar`,
+    title: `${blog.title} | Deepak A C`,
     description: blog.description || blog.title,
     openGraph: {
       title: blog.title,
