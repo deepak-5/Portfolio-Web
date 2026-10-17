@@ -9,21 +9,16 @@ import {
   Sun,
   Moon,
   Command,
-  Wand2,
   FileText,
   ArrowUpRight,
-  MapPin,
-  Sparkles,
 } from "lucide-react";
 
 interface TopNavHeaderProps {
   onOpenCommandPalette?: () => void;
-  onOpenPromptStudio?: (projectId?: string) => void;
 }
 
 export default function TopNavHeader({
   onOpenCommandPalette,
-  onOpenPromptStudio,
 }: TopNavHeaderProps) {
   const { theme, setTheme } = useTheme();
   const pathname = usePathname();
@@ -109,20 +104,8 @@ export default function TopNavHeader({
           ))}
         </nav>
 
-        {/* Right: Interactive Actions (Prompt Studio, Command Palette, Resume, Theme) */}
+        {/* Right: Interactive Actions (Command Palette, Resume, Theme) */}
         <div className="flex items-center gap-2 shrink-0">
-          {onOpenPromptStudio && (
-            <button
-              type="button"
-              onClick={() => onOpenPromptStudio("document-navigator")}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono-tech font-medium bg-blue-500/10 hover:bg-blue-500/20 text-blue-600 dark:text-blue-400 border border-blue-500/25 transition-all cursor-pointer"
-              title="Open Anti-Slop Project Image Prompt Studio"
-            >
-              <Wand2 className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Image Prompts</span>
-            </button>
-          )}
-
           {onOpenCommandPalette && (
             <button
               type="button"

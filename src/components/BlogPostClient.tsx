@@ -5,7 +5,6 @@ import Link from "next/link";
 import { BlogPost } from "@/types/blog";
 import { BlogContent } from "@/components/BlogContent";
 import TopNavHeader from "@/components/TopNavHeader";
-import PromptStudioModal from "@/components/PromptStudioModal";
 import CommandPalette from "@/components/CommandPalette";
 import { ArrowLeft } from "lucide-react";
 
@@ -15,38 +14,14 @@ interface BlogPostClientProps {
 
 export default function BlogPostClient({ blog }: BlogPostClientProps) {
   const [commandOpen, setCommandOpen] = useState(false);
-  const [promptStudio, setPromptStudio] = useState<{
-    open: boolean;
-    projectId: string;
-  }>({ open: false, projectId: "document-navigator" });
 
   return (
     <div className="min-h-screen w-full bg-[#FAF9F6] dark:bg-[#090A0F] text-[#111318] dark:text-[#F4F6FB] transition-colors duration-300">
-      <TopNavHeader
-        onOpenCommandPalette={() => setCommandOpen(true)}
-        onOpenPromptStudio={(projectId) =>
-          setPromptStudio({
-            open: true,
-            projectId: projectId || "document-navigator",
-          })
-        }
-      />
+      <TopNavHeader onOpenCommandPalette={() => setCommandOpen(true)} />
 
       <CommandPalette
         isOpen={commandOpen}
         onClose={() => setCommandOpen(false)}
-        onOpenPromptStudio={(projectId) =>
-          setPromptStudio({
-            open: true,
-            projectId: projectId || "document-navigator",
-          })
-        }
-      />
-
-      <PromptStudioModal
-        isOpen={promptStudio.open}
-        initialProjectId={promptStudio.projectId}
-        onClose={() => setPromptStudio((prev) => ({ ...prev, open: false }))}
       />
 
       <div className="w-full px-4 sm:px-8 lg:px-14 xl:px-20 py-10 sm:py-14">

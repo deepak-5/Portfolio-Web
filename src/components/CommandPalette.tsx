@@ -10,7 +10,6 @@ import {
   Terminal,
   Cpu,
   FolderGit2,
-  Wand2,
   Mail,
   FileText,
   Sun,
@@ -19,19 +18,16 @@ import {
   Award,
   Briefcase,
   Check,
-  X,
 } from "lucide-react";
 
 interface CommandPaletteProps {
   isOpen: boolean;
   onClose: () => void;
-  onOpenPromptStudio: (projectId?: string) => void;
 }
 
 export default function CommandPalette({
   isOpen,
   onClose,
-  onOpenPromptStudio,
 }: CommandPaletteProps) {
   const [query, setQuery] = useState("");
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -92,16 +88,6 @@ export default function CommandPalette({
       action: () => {
         onClose();
         document.getElementById("credentials")?.scrollIntoView({ behavior: "smooth" });
-      },
-    },
-    {
-      id: "prompt-studio",
-      category: "AI Tools",
-      label: "Open Anti-Slop Project Image Prompt Studio",
-      icon: <Wand2 className="w-4 h-4 text-purple-400" />,
-      action: () => {
-        onClose();
-        onOpenPromptStudio("document-navigator");
       },
     },
     ...projects.map((p) => ({

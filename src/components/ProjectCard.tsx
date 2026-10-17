@@ -14,7 +14,6 @@ interface ProjectCardProps {
   project: Project;
   isDetailed?: boolean;
   allProjects?: Project[];
-  onOpenPromptStudio?: (projectId: string) => void;
 }
 
 const MarkdownComponents = {
@@ -106,7 +105,6 @@ export const ProjectCard = ({
   project,
   isDetailed = false,
   allProjects = [],
-  onOpenPromptStudio,
 }: ProjectCardProps) => {
   if (!isDetailed) {
     return (
@@ -122,7 +120,7 @@ export const ProjectCard = ({
     <article className="w-full">
       {/* Full-Width 12-Column Case Study Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-        {/* Left 5 Columns: Sticky System Telemetry & Metadata */}
+        {/* Left 5 Columns: Sticky System Preview & Metadata */}
         <div className="lg:col-span-5 lg:sticky lg:top-24 space-y-6">
           <div className="space-y-3">
             <div className="flex items-center gap-2 font-mono-tech text-xs text-blue-600 dark:text-blue-400">
@@ -138,12 +136,12 @@ export const ProjectCard = ({
             </p>
           </div>
 
-          {/* Interactive Live System Preview */}
+          {/* High-Resolution Project Image Showcase */}
           <div className="rounded-2xl overflow-hidden border border-black/10 dark:border-white/[0.1] shadow-xl">
             <ProjectSystemPreview
               projectId={project.id}
-              interactive={true}
-              onOpenPromptStudio={onOpenPromptStudio}
+              image={project.image}
+              title={project.title}
             />
           </div>
 

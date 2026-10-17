@@ -9,7 +9,6 @@ import { blogs } from "@/data/blogs";
 import TopNavHeader from "./TopNavHeader";
 import HeroArchitectureConsole from "./HeroArchitectureConsole";
 import ProjectSystemPreview from "./ProjectSystemPreview";
-import PromptStudioModal, { PromptStudioContent } from "./PromptStudioModal";
 import CommandPalette from "./CommandPalette";
 import ContributionsDisplay from "./ContributionsDisplay";
 import {
@@ -19,33 +18,18 @@ import {
   Copy,
   Check,
   Sparkles,
-  Cpu,
-  Layers,
-  Award,
   GraduationCap,
-  Briefcase,
   Search,
-  Wand2,
-  BookOpen,
   Terminal,
-  ShieldCheck,
   ChevronRight,
-  ExternalLink,
-  Code2,
-  Database,
-  Cloud,
-  GitBranch,
+  FileText,
   Zap,
 } from "lucide-react";
-import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
 
 export default function HomeContent() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [commandOpen, setCommandOpen] = useState(false);
-  const [promptStudioModal, setPromptStudioModal] = useState<{
-    open: boolean;
-    projectId: string;
-  }>({ open: false, projectId: "document-navigator" });
 
   // Projects filter: "resume" (4 core resume projects) vs "all" (all 6 projects)
   const [projectFilter, setProjectFilter] = useState<"resume" | "all">("resume");
@@ -98,35 +82,12 @@ export default function HomeContent() {
   return (
     <div className="min-h-screen w-full bg-[#FAF9F6] dark:bg-[#090A0F] text-[#111318] dark:text-[#F4F6FB] transition-colors duration-300">
       {/* Top Sticky Full-Width Command Header */}
-      <TopNavHeader
-        onOpenCommandPalette={() => setCommandOpen(true)}
-        onOpenPromptStudio={(projectId) =>
-          setPromptStudioModal({
-            open: true,
-            projectId: projectId || "document-navigator",
-          })
-        }
-      />
+      <TopNavHeader onOpenCommandPalette={() => setCommandOpen(true)} />
 
       {/* Global Command Palette (⌘K) */}
       <CommandPalette
         isOpen={commandOpen}
         onClose={() => setCommandOpen(false)}
-        onOpenPromptStudio={(projectId) =>
-          setPromptStudioModal({
-            open: true,
-            projectId: projectId || "document-navigator",
-          })
-        }
-      />
-
-      {/* Anti-Slop Project Image Prompt Studio Modal */}
-      <PromptStudioModal
-        isOpen={promptStudioModal.open}
-        initialProjectId={promptStudioModal.projectId}
-        onClose={() =>
-          setPromptStudioModal((prev) => ({ ...prev, open: false }))
-        }
       />
 
       {/* =====================================================================
@@ -297,19 +258,16 @@ export default function HomeContent() {
                   <ChevronRight className="w-4 h-4" />
                 </a>
 
-                <button
-                  type="button"
-                  onClick={() =>
-                    setPromptStudioModal({
-                      open: true,
-                      projectId: "document-navigator",
-                    })
-                  }
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium bg-white dark:bg-[#161922] hover:bg-black/5 dark:hover:bg-white/[0.08] text-neutral-900 dark:text-[#F4F6FB] border border-black/12 dark:border-white/[0.1] transition-all cursor-pointer"
+                <a
+                  href={portfolioData.personal.links.resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium bg-white dark:bg-[#161922] hover:bg-black/5 dark:hover:bg-white/[0.08] text-neutral-900 dark:text-[#F4F6FB] border border-black/12 dark:border-white/[0.1] transition-all"
                 >
-                  <Wand2 className="w-4 h-4 text-blue-500" />
-                  <span>Anti-Slop Image Prompts</span>
-                </button>
+                  <FileText className="w-4 h-4 text-blue-500" />
+                  <span>View Resume</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-70" />
+                </a>
 
                 <a
                   href="#skills"
@@ -540,7 +498,7 @@ export default function HomeContent() {
       </section>
 
       {/* =====================================================================
-          SYS.04 // SELECTED PROJECTS & DELIVERABLES (ZERO AI SLOP LIVE UI)
+          SYS.04 // SELECTED PROJECTS & DELIVERABLES
       ===================================================================== */}
       <section
         id="projects"
@@ -554,18 +512,10 @@ export default function HomeContent() {
                 [SYS.04 // SELECTED PROJECTS &amp; DELIVERABLES]
               </span>
               <h2 className="font-display text-2xl sm:text-4xl font-bold tracking-tight">
-                Production AI Platforms &amp; Interactive System Previews
+                Flagship Production AI Systems &amp; Platforms
               </h2>
               <p className="text-sm sm:text-base text-neutral-600 dark:text-[#9499AD] mt-2 max-w-3xl">
-                Every project card below renders a{" "}
-                <strong className="text-neutral-900 dark:text-white">
-                  live interactive system simulation
-                </strong>{" "}
-                (zero generic AI stock art). Click{" "}
-                <span className="font-mono-tech text-xs text-blue-500">
-                  [Image Prompt]
-                </span>{" "}
-                on any card to copy its tailored Flux / Midjourney prompt.
+                Enterprise-hardened Generative AI platforms, Agentic RAG pipelines, and workflow orchestration engines architected and shipped into production.
               </p>
             </div>
 
@@ -580,7 +530,7 @@ export default function HomeContent() {
                       : "text-neutral-600 dark:text-[#9499AD] hover:text-neutral-950 dark:hover:text-white"
                   }`}
                 >
-                  Resume Core [04]
+                  Selected Deliverables [04]
                 </button>
                 <button
                   type="button"
@@ -613,13 +563,11 @@ export default function HomeContent() {
                 className="group rounded-3xl bg-white dark:bg-[#11131A] border border-black/10 dark:border-white/[0.09] hover:border-blue-500/50 transition-all shadow-lg hover:shadow-2xl overflow-hidden flex flex-col justify-between"
               >
                 <div>
-                  {/* Live Interactive System Preview (Replaces AI Slop Images!) */}
+                  {/* High-Resolution Project Cover Showcase */}
                   <ProjectSystemPreview
                     projectId={project.id}
-                    interactive={true}
-                    onOpenPromptStudio={(id) =>
-                      setPromptStudioModal({ open: true, projectId: id })
-                    }
+                    image={project.image}
+                    title={project.title}
                   />
 
                   {/* Card Content Body */}
@@ -712,19 +660,9 @@ export default function HomeContent() {
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </Link>
 
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setPromptStudioModal({
-                        open: true,
-                        projectId: project.id,
-                      })
-                    }
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono-tech bg-black/5 dark:bg-white/[0.06] hover:bg-blue-500/20 text-neutral-700 dark:text-[#9499AD] hover:text-blue-600 dark:hover:text-blue-300 transition-colors cursor-pointer"
-                  >
-                    <Wand2 className="w-3 h-3 text-blue-400" />
-                    <span>Copy Image Prompt</span>
-                  </button>
+                  <span className="font-mono-tech text-[11px] text-emerald-600 dark:text-emerald-400">
+                    ● Production Verified
+                  </span>
                 </div>
               </div>
             ))}
@@ -1002,35 +940,7 @@ export default function HomeContent() {
       </section>
 
       {/* =====================================================================
-          SYS.08 // ANTI-SLOP PROJECT IMAGE PROMPT STUDIO (INLINE INTERACTIVE)
-      ===================================================================== */}
-      <section
-        id="prompt-studio"
-        className="w-full border-b border-black/8 dark:border-white/[0.08]"
-      >
-        <div className="w-full px-4 sm:px-8 lg:px-14 xl:px-20 py-14 sm:py-20">
-          <div className="mb-8">
-            <span className="font-mono-tech text-xs uppercase tracking-wider text-blue-600 dark:text-blue-400 font-semibold block mb-1">
-              [SYS.08 // ANTI-SLOP VISUAL PROMPT STUDIO]
-            </span>
-            <h2 className="font-display text-2xl sm:text-4xl font-bold tracking-tight">
-              Generate New Project Cover Visuals (Zero AI Slop)
-            </h2>
-            <p className="text-sm sm:text-base text-neutral-600 dark:text-[#9499AD] mt-1 max-w-3xl">
-              Select any of your projects below to copy tailored, high-craft prompts for{" "}
-              <strong className="text-neutral-900 dark:text-white">
-                Midjourney v6.1, Flux.1 Pro, or Ideogram 2.0
-              </strong>{" "}
-              with built-in negative guardrails (no glowing brains, no plastic robots, no gibberish text).
-            </p>
-          </div>
-
-          <PromptStudioContent isModal={false} />
-        </div>
-      </section>
-
-      {/* =====================================================================
-          SYS.09 // GITHUB TELEMETRY & ENGINEERING WRITINGS
+          SYS.08 // GITHUB TELEMETRY & ENGINEERING WRITINGS
       ===================================================================== */}
       <section
         id="writings"
@@ -1042,7 +952,7 @@ export default function HomeContent() {
             <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
               <div>
                 <span className="font-mono-tech text-xs uppercase tracking-wider text-blue-600 dark:text-blue-400 font-semibold block mb-1">
-                  [SYS.09 // ARCHITECTURAL WRITINGS]
+                  [SYS.08 // ARCHITECTURAL WRITINGS]
                 </span>
                 <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight">
                   Engineering Deep-Dives &amp; Production Playbooks
@@ -1124,14 +1034,14 @@ export default function HomeContent() {
       </section>
 
       {/* =====================================================================
-          SYS.10 // FULL-WIDTH TERMINAL FOOTER & DIRECT CONNECT
+          SYS.09 // FULL-WIDTH TERMINAL FOOTER & DIRECT CONNECT
       ===================================================================== */}
       <footer className="w-full bg-[#090A0F] text-[#F4F6FB] border-t border-white/[0.08]">
         <div className="w-full px-4 sm:px-8 lg:px-14 xl:px-20 py-14 sm:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center pb-12 border-b border-white/[0.08]">
             <div className="lg:col-span-7 space-y-3">
               <span className="font-mono-tech text-xs text-blue-400 uppercase tracking-wider block">
-                [SYS.10 // INITIATE CONNECTION]
+                [SYS.09 // INITIATE CONNECTION]
               </span>
               <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white">
                 Architecting Enterprise Agentic AI Systems? Let&apos;s Talk.

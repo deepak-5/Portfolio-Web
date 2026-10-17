@@ -1,18 +1,3 @@
-export interface ImagePromptRecipe {
-  projectId: string;
-  projectName: string;
-  targetFilePath: string;
-  whyOldWasSlop: string;
-  recommendedModel: string;
-  aspectRatio: string;
-  prompts: {
-    linearUiRender: string;
-    architecturalBlueprint: string;
-    minimalistSwiss: string;
-    negativePrompt: string;
-  };
-}
-
 export interface Project {
   id: string;
   title: string;

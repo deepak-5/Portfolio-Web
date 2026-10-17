@@ -5,9 +5,8 @@ import Link from "next/link";
 import { Project } from "@/types/project";
 import TopNavHeader from "@/components/TopNavHeader";
 import ProjectSystemPreview from "@/components/ProjectSystemPreview";
-import PromptStudioModal from "@/components/PromptStudioModal";
 import CommandPalette from "@/components/CommandPalette";
-import { ArrowUpRight, ArrowLeft, Wand2 } from "lucide-react";
+import { ArrowUpRight, ArrowLeft } from "lucide-react";
 
 interface ProjectsListClientProps {
   projects: Project[];
@@ -17,38 +16,14 @@ export default function ProjectsListClient({
   projects,
 }: ProjectsListClientProps) {
   const [commandOpen, setCommandOpen] = useState(false);
-  const [promptStudio, setPromptStudio] = useState<{
-    open: boolean;
-    projectId: string;
-  }>({ open: false, projectId: "document-navigator" });
 
   return (
     <div className="min-h-screen w-full bg-[#FAF9F6] dark:bg-[#090A0F] text-[#111318] dark:text-[#F4F6FB] transition-colors duration-300">
-      <TopNavHeader
-        onOpenCommandPalette={() => setCommandOpen(true)}
-        onOpenPromptStudio={(projectId) =>
-          setPromptStudio({
-            open: true,
-            projectId: projectId || "document-navigator",
-          })
-        }
-      />
+      <TopNavHeader onOpenCommandPalette={() => setCommandOpen(true)} />
 
       <CommandPalette
         isOpen={commandOpen}
         onClose={() => setCommandOpen(false)}
-        onOpenPromptStudio={(projectId) =>
-          setPromptStudio({
-            open: true,
-            projectId: projectId || "document-navigator",
-          })
-        }
-      />
-
-      <PromptStudioModal
-        isOpen={promptStudio.open}
-        initialProjectId={promptStudio.projectId}
-        onClose={() => setPromptStudio((prev) => ({ ...prev, open: false }))}
       />
 
       <div className="w-full px-4 sm:px-8 lg:px-14 xl:px-20 py-12 sm:py-16">
@@ -71,17 +46,6 @@ export default function ProjectsListClient({
               Production-grade Generative AI platforms, Agentic RAG pipelines, and distributed Azure microservices architected by Deepak A C.
             </p>
           </div>
-
-          <button
-            type="button"
-            onClick={() =>
-              setPromptStudio({ open: true, projectId: "document-navigator" })
-            }
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono-tech bg-blue-600 hover:bg-blue-500 text-white transition-all cursor-pointer shrink-0"
-          >
-            <Wand2 className="w-4 h-4" />
-            <span>Open Anti-Slop Image Prompt Studio</span>
-          </button>
         </div>
 
         {/* Full-Width 2-Column Grid */}
@@ -94,10 +58,8 @@ export default function ProjectsListClient({
               <div>
                 <ProjectSystemPreview
                   projectId={project.id}
-                  interactive={true}
-                  onOpenPromptStudio={(id) =>
-                    setPromptStudio({ open: true, projectId: id })
-                  }
+                  image={project.image}
+                  title={project.title}
                 />
 
                 <div className="p-6 sm:p-7 space-y-4">
@@ -109,7 +71,7 @@ export default function ProjectsListClient({
                         </span>
                         {project.featuredInResume && (
                           <span className="font-mono-tech text-[10px] px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
-                            RESUME CORE
+                            SELECTED DELIVERABLE
                           </span>
                         )}
                       </div>
@@ -160,16 +122,9 @@ export default function ProjectsListClient({
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </Link>
 
-                <button
-                  type="button"
-                  onClick={() =>
-                    setPromptStudio({ open: true, projectId: project.id })
-                  }
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono-tech bg-black/5 dark:bg-white/[0.06] hover:bg-blue-500/20 text-neutral-700 dark:text-[#9499AD] hover:text-blue-400 transition-colors cursor-pointer"
-                >
-                  <Wand2 className="w-3 h-3 text-blue-400" />
-                  <span>Copy Image Prompt</span>
-                </button>
+                <span className="font-mono-tech text-[11px] text-emerald-600 dark:text-emerald-400">
+                  ● Production System
+                </span>
               </div>
             </div>
           ))}

@@ -81,7 +81,7 @@ A **microservices-based intelligent document processing (IDP) platform** orchest
     liveLink: "",
     githubLink: "",
     video: "",
-    image: "/projects/document-navigator.png",
+    image: "/projects/Document Navigator  prj.png",
     tweetUrl: "",
   },
   {
@@ -146,7 +146,7 @@ An **enterprise visual workflow automation platform** built with **Next.js, Micr
     liveLink: "",
     githubLink: "",
     video: "",
-    image: "/projects/flowbuilder.png",
+    image: "/projects/Flow Builder prj.png",
     tweetUrl: "",
   },
   {
@@ -232,7 +232,7 @@ User Query ──▶ [Azure APIM Gateway]
     liveLink: "",
     githubLink: "",
     video: "",
-    image: "/projects/rag.png",
+    image: "/projects/KB Chatbot  prj.png",
     tweetUrl: "",
   },
   {
@@ -252,7 +252,7 @@ User Query ──▶ [Azure APIM Gateway]
       { label: "Skill Deployment", value: "1-Click Clone" },
     ],
     description:
-      "Built a prompt lifecycle platform with versioning, a skill marketplace, and one-click cloning, cutting redundant prompt work by 65%. ",
+      "Built a prompt lifecycle platform with versioning, a skill marketplace, and one-click cloning, cutting redundant prompt work by 65%.",
     resumeBullets: [
       "Built a prompt lifecycle platform with versioning, a skill marketplace, and one-click cloning, cutting redundant prompt work by 65%.",
     ],
@@ -300,7 +300,7 @@ An enterprise **Prompt Lifecycle & Governance Platform ("Git for Prompts")** bui
     liveLink: "",
     githubLink: "",
     video: "",
-    image: "/projects/Promtp management.png",
+    image: "/projects/Prompt Management System - proj.png",
     tweetUrl: "",
   },
   {
@@ -354,7 +354,7 @@ An **AI-powered reporting engine** combining **Azure OpenAI, Bing Grounding, Cos
     liveLink: "",
     githubLink: "",
     video: "",
-    image: "/projects/Ai-Reporting.png",
+    image: "/projects/AI Reporting Prj.png",
     tweetUrl: "",
   },
   {
@@ -404,7 +404,7 @@ A **dual-QR authentication platform** built with **React, Python, Flask, and Pos
     liveLink: "",
     githubLink: "",
     video: "",
-    image: "/projects/qr app.png",
+    image: "/projects/Pharma QR Prj.png",
     tweetUrl: "",
   },
 ];
