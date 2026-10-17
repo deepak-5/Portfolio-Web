@@ -5,6 +5,7 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollToTop } from "@/components/ui/ScrollAnimations";
+import ClientHydrationGuard from "@/components/ClientHydrationGuard";
 
 const clashDisplay = localFont({
   src: [
@@ -56,6 +57,37 @@ export const metadata: Metadata = {
   },
 };
 
+const stripExtensionAttrsScript = `
+(function() {
+  try {
+    var attrs = ['bis_skin_checked', 'bis_register', 'data-darkreader-inline-stroke', 'data-darkreader-inline-fill', 'data-darkreader-inline-color', 'data-darkreader-inline-bgcolor', 'data-darkreader-inline-bgimage'];
+    function clean(root) {
+      if (!root || !root.querySelectorAll) return;
+      attrs.forEach(function(attr) {
+        if (root.hasAttribute && root.hasAttribute(attr)) root.removeAttribute(attr);
+        var nodes = root.querySelectorAll('[' + attr + ']');
+        for (var i = 0; i < nodes.length; i++) {
+          nodes[i].removeAttribute(attr);
+        }
+      });
+    }
+    clean(document.documentElement);
+    var obs = new MutationObserver(function(mutations) {
+      for (var i = 0; i < mutations.length; i++) {
+        var m = mutations[i];
+        if (m.type === 'attributes' && m.attributeName && attrs.indexOf(m.attributeName) !== -1) {
+          m.target.removeAttribute(m.attributeName);
+        }
+      }
+    });
+    obs.observe(document.documentElement, { attributes: true, subtree: true, attributeFilter: attrs });
+    window.addEventListener('load', function() {
+      setTimeout(function() { obs.disconnect(); }, 2000);
+    });
+  } catch (e) {}
+})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -70,6 +102,9 @@ export default function RootLayout({
       <head>
         <meta name="darkreader-lock" />
         <meta name="color-scheme" content="dark light" />
+        <script
+          dangerouslySetInnerHTML={{ __html: stripExtensionAttrsScript }}
+        />
         <link rel="icon" href="/profilepic.jpeg" />
         <meta
           name="google-site-verification"
@@ -86,13 +121,10 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <div
-            className="relative z-10 min-h-screen w-full overflow-x-hidden"
-            suppressHydrationWarning
-          >
+          <ClientHydrationGuard>
             {children}
-          </div>
-          <ScrollToTop />
+            <ScrollToTop />
+          </ClientHydrationGuard>
         </ThemeProvider>
       </body>
     </html>
