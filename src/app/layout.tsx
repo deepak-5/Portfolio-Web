@@ -36,6 +36,10 @@ export const metadata: Metadata = {
   icons: {
     icon: "/vercel.svg",
   },
+  other: {
+    "darkreader-lock": "true",
+    "color-scheme": "dark light",
+  },
   openGraph: {
     url: "https://deepakac.dev/",
     siteName: "Deepak A C — AI Engineer Portfolio",
@@ -64,6 +68,8 @@ export default function RootLayout({
       className={`${GeistSans.variable} ${GeistMono.variable} ${clashDisplay.variable}`}
     >
       <head>
+        <meta name="darkreader-lock" />
+        <meta name="color-scheme" content="dark light" />
         <link rel="icon" href="/profilepic.jpeg" />
         <meta
           name="google-site-verification"
@@ -80,7 +86,10 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <div className="relative z-10 min-h-screen w-full overflow-x-hidden">
+          <div
+            className="relative z-10 min-h-screen w-full overflow-x-hidden"
+            suppressHydrationWarning
+          >
             {children}
           </div>
           <ScrollToTop />

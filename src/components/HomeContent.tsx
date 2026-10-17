@@ -98,13 +98,7 @@ export default function HomeContent() {
         className="relative w-full border-b border-black/8 dark:border-white/[0.08] bg-arch-grid overflow-hidden"
       >
         {/* Ambient radial glow */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.10), transparent 45%), radial-gradient(circle at 80% 30%, rgba(16, 185, 129, 0.08), transparent 50%)",
-          }}
-        />
+        <div className="absolute inset-0 pointer-events-none bg-hero-glow" />
 
         <div className="relative z-10 w-full px-4 sm:px-8 lg:px-14 xl:px-20 py-10 sm:py-14 lg:py-20">
           {/* Technical Coordinate Marker */}
@@ -1125,7 +1119,7 @@ export default function HomeContent() {
             </div>
 
             <div>
-              © {new Date().getFullYear()} Deepak A C • Built with Next.js &amp; Azure AI Architecture Standards
+              © 2026 Deepak A C • Built with Next.js &amp; Azure AI Architecture Standards
             </div>
           </div>
         </div>

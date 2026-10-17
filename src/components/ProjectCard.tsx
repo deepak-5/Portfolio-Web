@@ -48,8 +48,17 @@ const MarkdownComponents = {
       <span>{children}</span>
     </li>
   ),
-  code: ({ inline, children, ...props }: any) => {
-    if (inline) {
+  pre: ({ children, ...props }: any) => (
+    <pre
+      className="overflow-x-auto rounded-2xl bg-[#090A0F] border border-white/[0.1] p-4 sm:p-5 text-xs sm:text-sm leading-relaxed mb-6 font-mono-tech text-neutral-200"
+      {...props}
+    >
+      {children}
+    </pre>
+  ),
+  code: ({ className, children, ...props }: any) => {
+    const isBlock = Boolean(className) || String(children).includes("\n");
+    if (!isBlock) {
       return (
         <code
           className="px-1.5 py-0.5 bg-black/5 dark:bg-white/[0.08] text-blue-600 dark:text-blue-300 rounded text-xs font-mono-tech"
@@ -60,12 +69,9 @@ const MarkdownComponents = {
       );
     }
     return (
-      <pre
-        className="overflow-x-auto rounded-2xl bg-[#090A0F] border border-white/[0.1] p-4 sm:p-5 text-xs sm:text-sm leading-relaxed mb-6 font-mono-tech text-neutral-200"
-        {...props}
-      >
-        <code>{children}</code>
-      </pre>
+      <code className="font-mono-tech text-neutral-200" {...props}>
+        {children}
+      </code>
     );
   },
   table: ({ children, ...props }: any) => (
