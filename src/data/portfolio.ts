@@ -1,0 +1,610 @@
+import { ImagePromptRecipe } from "@/types/project";
+
+export const portfolioData = {
+  personal: {
+    name: "DEEPAK A C",
+    displayName: "Deepak A C",
+    role: "AI ENGINEER | GENERATIVE AI & AGENTIC SYSTEMS",
+    shortRole: "AI Engineer & R&D Lead",
+    company: "FNF India (Fidelity National Financial)",
+    location: "Bengaluru, India",
+    timezone: "Asia/Kolkata (UTC+5:30)",
+    availability: "Leading Enterprise AI R&D • Open to High-Impact AI Architecture Discussions",
+    avatar: "/profilepic.jpeg",
+    email: "deepak.cs021@gmail.com",
+    links: {
+      email: "mailto:deepak.cs021@gmail.com",
+      linkedin: "https://www.linkedin.com/in/deepak-ac/",
+      github: "https://github.com/deepak-5",
+      portfolio: "https://deepakac.dev",
+      twitter: "https://x.com/Deepakgowda05",
+      resume:
+        "https://drive.google.com/file/d/1Mlj0N57oBI6IZEofpFriZ0Zkwj0mezsk/view?usp=sharing",
+      cal: "https://cal.com/deepak-ac/15min",
+    },
+    summary:
+      "AI Engineer leading an R&D team with 3+ years building production-grade Generative AI systems — Agentic RAG, workflow automation, and intelligent copilots — on Azure-native, event-driven architectures. Proven record of turning emerging AI patterns into scalable platforms, mentoring engineering teams, and setting organization-wide AI architecture standards.",
+  },
+
+  keyAchievements: [
+    {
+      id: "platforms-shipped",
+      metric: "6",
+      suffix: "+",
+      label: "Production AI Platforms",
+      highlight: "Used daily across the organization",
+      description:
+        "Shipped 6 production AI platforms used daily across the organization, replacing manual workflow processes.",
+      tag: "ORG-WIDE PRODUCTION",
+      accent: "blue",
+    },
+    {
+      id: "effort-reduction",
+      metric: "50",
+      suffix: "%",
+      label: "Engineering Effort Cut",
+      highlight: "15+ reusable AI capabilities • 1,200+ hrs/yr saved",
+      description:
+        "Cut engineering effort by 50% by building 15+ reusable AI capabilities adopted across multiple teams.",
+      tag: "VELOCITY MULTIPLIER",
+      accent: "emerald",
+    },
+    {
+      id: "team-mentorship",
+      metric: "10,000",
+      suffix: "+",
+      label: "Enterprise Users Served",
+      highlight: "99.9% production uptime • Multi-team AI mentorship",
+      description:
+        "Trained and mentored engineers across teams on Agentic AI, RAG, and modern LLM frameworks, accelerating org-wide AI adoption.",
+      tag: "R&D LEADERSHIP",
+      accent: "amber",
+    },
+    {
+      id: "precision-sla",
+      metric: "98",
+      suffix: "%+",
+      label: "RAG & Extraction Accuracy",
+      highlight: "Sub-200ms hybrid retrieval • 10K+ daily docs",
+      description:
+        "Engineered sub-200ms hybrid Vector + BM25 RAG retrieval at 98%+ accuracy and 96%+ extraction accuracy on 10,000+ daily documents.",
+      tag: "BENCHMARK SLA",
+      accent: "blue",
+    },
+  ],
+
+  experience: [
+    {
+      id: "fnf-india",
+      role: "AI Engineer",
+      titleBadge: "AI R&D Team Lead",
+      company: "FNF India (Fidelity National Financial)",
+      companyUrl: "https://fnfindia.co.in/index.html",
+      location: "Bengaluru, India",
+      period: "Mar 2023 – Present",
+      duration: "3+ Years",
+      summary:
+        "Leading an AI R&D engineering team architecting enterprise-grade Generative AI platforms, Agentic RAG pipelines, and Azure-native event-driven microservices across Fortune 500 title insurance operations.",
+      coreBullets: [
+        {
+          category: "AI Architecture & Strategy",
+          metric: "10,000+ Users",
+          text: "Own AI architecture strategy for an enterprise platform serving 10,000+ users; define technical standards for Agentic RAG, workflow automation, and AI copilot systems adopted across engineering teams.",
+        },
+        {
+          category: "R&D Mentorship & Reusable Capabilities",
+          metric: "1,200+ Hrs Saved/Yr",
+          text: "Lead and mentor engineers on modern AI frameworks (Agentic RAG, LangChain, Semantic Kernel, MCP/A2A), building 15+ reusable AI capabilities that saved 1,200+ development hours annually.",
+        },
+        {
+          category: "Cloud-Native Microservices",
+          metric: "99.9% Uptime",
+          text: "Architect scalable Azure-native microservices (Dapr, Cosmos DB, Service Bus, APIM, Key Vault, SignalR), achieving 99.9% production uptime across live workloads.",
+        },
+      ],
+      extendedHighlights: [
+        "Spearheaded organization-wide adoption of Model Context Protocol (MCP) and Agent-to-Agent (A2A) orchestration standards for cross-service autonomous tool invocation.",
+        "Designed reusable AI skill modules for automated code review, vulnerability discovery, and legacy .NET Framework to .NET 10 migration across 4+ engineering divisions.",
+        "Established enterprise LLM governance patterns including APIM token rate-limiting, PII masking, semantic Redis caching, and automated faithfulness evaluation.",
+      ],
+      techStack: [
+        "Agentic RAG",
+        "Azure OpenAI",
+        "LangChain",
+        "Semantic Kernel",
+        "MCP / A2A",
+        ".NET",
+        "Dapr",
+        "Cosmos DB",
+        "Service Bus",
+        "APIM",
+        "Key Vault",
+        "SignalR",
+      ],
+    },
+  ],
+
+  skillCategories: [
+    {
+      id: "ai-engineering",
+      code: "DOM.01",
+      title: "AI Engineering",
+      subtitle: "Generative AI, Agentic Orchestration & Retrieval",
+      accent: "blue",
+      skills: [
+        { name: "LLM Models", level: "Core", projects: ["document-navigator", "flow-builder", "knowledge-base-chatbot", "prompt-management-system", "ai-reporting-engine"] },
+        { name: "Agentic RAG", level: "Core", projects: ["knowledge-base-chatbot", "flow-builder"] },
+        { name: "Agent Frameworks", level: "Core", projects: ["flow-builder", "knowledge-base-chatbot"] },
+        { name: "LangChain", level: "Core", projects: ["knowledge-base-chatbot", "flow-builder"] },
+        { name: "AutoGen", level: "Advanced", projects: ["flow-builder"] },
+        { name: "Semantic Kernel", level: "Core", projects: ["flow-builder", "document-navigator"] },
+        { name: "MCP", level: "Core", projects: ["flow-builder", "prompt-management-system"] },
+        { name: "A2A", level: "Core", projects: ["flow-builder", "knowledge-base-chatbot"] },
+        { name: "Prompt Engineering", level: "Core", projects: ["prompt-management-system", "document-navigator", "ai-reporting-engine"] },
+        { name: "Vector Databases", level: "Core", projects: ["knowledge-base-chatbot"] },
+        { name: "Embeddings", level: "Core", projects: ["knowledge-base-chatbot", "document-navigator"] },
+      ],
+    },
+    {
+      id: "cloud-infrastructure",
+      code: "DOM.02",
+      title: "Cloud & Infrastructure",
+      subtitle: "Azure-Native Distributed Systems & DevSecOps",
+      accent: "emerald",
+      skills: [
+        { name: "Azure", level: "Core", projects: ["document-navigator", "flow-builder", "knowledge-base-chatbot", "prompt-management-system", "ai-reporting-engine"] },
+        { name: "Cosmos DB", level: "Core", projects: ["prompt-management-system", "ai-reporting-engine"] },
+        { name: "Service Bus", level: "Core", projects: ["document-navigator", "flow-builder"] },
+        { name: "APIM", level: "Core", projects: ["knowledge-base-chatbot", "document-navigator"] },
+        { name: "Key Vault", level: "Core", projects: ["document-navigator", "prompt-management-system"] },
+        { name: "Blob Storage", level: "Core", projects: ["document-navigator", "ai-reporting-engine"] },
+        { name: "Azure Functions", level: "Advanced", projects: ["document-navigator", "flow-builder"] },
+        { name: "AKS", level: "Advanced", projects: ["document-navigator"] },
+        { name: "Docker", level: "Core", projects: ["document-navigator", "flow-builder"] },
+        { name: "Kubernetes", level: "Advanced", projects: ["document-navigator"] },
+        { name: "Terraform", level: "Advanced", projects: ["document-navigator"] },
+        { name: "Dapr", level: "Core", projects: ["document-navigator"] },
+        { name: "CI/CD (Azure DevOps, GitHub Actions)", level: "Core", projects: ["prompt-management-system", "document-navigator", "flow-builder"] },
+      ],
+    },
+    {
+      id: "development-stack",
+      code: "DOM.03",
+      title: "Development Stack",
+      subtitle: "Full-Stack Enterprise Web & API Runtimes",
+      accent: "amber",
+      skills: [
+        { name: ".NET", level: "Core", projects: ["document-navigator", "flow-builder", "knowledge-base-chatbot", "prompt-management-system", "ai-reporting-engine"] },
+        { name: "Blazor", level: "Core", projects: ["prompt-management-system", "ai-reporting-engine"] },
+        { name: "Angular", level: "Core", projects: ["knowledge-base-chatbot"] },
+        { name: "Next.js", level: "Core", projects: ["flow-builder", "prompt-management-system"] },
+        { name: "React", level: "Core", projects: ["flow-builder", "prompt-management-system", "pharmaqr"] },
+        { name: "Flask", level: "Advanced", projects: ["pharmaqr"] },
+        { name: "FastAPI", level: "Core", projects: ["knowledge-base-chatbot", "flow-builder"] },
+      ],
+    },
+    {
+      id: "architecture",
+      code: "DOM.04",
+      title: "Architecture",
+      subtitle: "Scalable Event-Driven & Real-Time Patterns",
+      accent: "blue",
+      skills: [
+        { name: "Microservices", level: "Core", projects: ["document-navigator", "flow-builder"] },
+        { name: "CQRS", level: "Core", projects: ["prompt-management-system", "document-navigator"] },
+        { name: "Event-Driven Architecture", level: "Core", projects: ["document-navigator", "flow-builder"] },
+        { name: "REST APIs", level: "Core", projects: ["knowledge-base-chatbot", "prompt-management-system", "pharmaqr"] },
+        { name: "SignalR", level: "Core", projects: ["document-navigator", "flow-builder"] },
+        { name: "Webhooks", level: "Core", projects: ["flow-builder"] },
+      ],
+    },
+    {
+      id: "programming-languages",
+      code: "DOM.05",
+      title: "Programming Languages",
+      subtitle: "Polyglot Systems & Application Engineering",
+      accent: "emerald",
+      skills: [
+        { name: "C#", level: "Core", projects: ["document-navigator", "flow-builder", "knowledge-base-chatbot", "prompt-management-system", "ai-reporting-engine"] },
+        { name: "TypeScript", level: "Core", projects: ["flow-builder", "prompt-management-system", "knowledge-base-chatbot"] },
+        { name: "Python", level: "Core", projects: ["knowledge-base-chatbot", "pharmaqr"] },
+        { name: "C++", level: "Proficiency", projects: [] },
+        { name: "JavaScript", level: "Core", projects: ["flow-builder", "pharmaqr"] },
+        { name: "SQL", level: "Core", projects: ["knowledge-base-chatbot", "pharmaqr"] },
+      ],
+    },
+    {
+      id: "tools-databases",
+      code: "DOM.06",
+      title: "Tools & Databases",
+      subtitle: "Persistence, Caching, Analytics & Security",
+      accent: "amber",
+      skills: [
+        { name: "SQL Server", level: "Core", projects: ["document-navigator", "ai-reporting-engine"] },
+        { name: "PostgreSQL", level: "Core", projects: ["pharmaqr"] },
+        { name: "SQLite", level: "Core", projects: ["knowledge-base-chatbot"] },
+        { name: "Redis", level: "Core", projects: ["knowledge-base-chatbot", "document-navigator", "ai-reporting-engine"] },
+        { name: "Power BI", level: "Core", projects: ["document-navigator"] },
+        { name: "Git", level: "Core", projects: ["prompt-management-system", "flow-builder", "document-navigator"] },
+        { name: "OAuth 2.0", level: "Core", projects: ["document-navigator", "knowledge-base-chatbot"] },
+        { name: "OWASP", level: "Core", projects: ["document-navigator", "prompt-management-system"] },
+      ],
+    },
+  ],
+
+  certifications: [
+    {
+      code: "AI-102",
+      title: "Azure AI Engineer Associate",
+      issuer: "Microsoft Certified",
+      tier: "Associate",
+      domain: "Cognitive Services • Azure OpenAI • Document Intelligence • Vector Search",
+      badgeColor: "#3B82F6",
+    },
+    {
+      code: "AZ-204",
+      title: "Azure Developer Associate",
+      issuer: "Microsoft Certified",
+      tier: "Associate",
+      domain: "Cloud Microservices • Cosmos DB • Service Bus • APIM • Key Vault",
+      badgeColor: "#10B981",
+    },
+    {
+      code: "AZ-900",
+      title: "Azure Fundamentals",
+      issuer: "Microsoft Certified",
+      tier: "Fundamentals",
+      domain: "Cloud Architecture • Security Governance • Identity • SLA Design",
+      badgeColor: "#6366F1",
+    },
+    {
+      code: "AI-900",
+      title: "Azure AI Fundamentals",
+      issuer: "Microsoft Certified",
+      tier: "Fundamentals",
+      domain: "Generative AI • NLP • Computer Vision • Responsible AI Standards",
+      badgeColor: "#F59E0B",
+    },
+  ],
+
+  education: {
+    institution: "Rajeev Institute of Technology",
+    degree: "B.E. — Computer Science & Engineering",
+    period: "2019 – 2023",
+    location: "Hassan, Karnataka",
+    highlights: [
+      "Core specialization in Distributed Systems, Data Structures & Algorithms, Database Management, and Machine Learning.",
+      "Built foundational full-stack and computer vision systems prior to joining FNF India's AI Engineering division.",
+    ],
+  },
+
+  architecturePipelines: [
+    {
+      id: "agentic-rag",
+      name: "Agentic RAG Engine",
+      projectRef: "Knowledge Base Chatbot (2025)",
+      slaLatency: "148ms",
+      slaAccuracy: "98.4%",
+      throughput: "5,000+ Docs Indexed",
+      description:
+        "Autonomous intent router combining dense embeddings (text-embedding-3-large) + sparse BM25 lexical search with cross-encoder re-ranking and Redis semantic cache.",
+      nodes: [
+        {
+          id: "n1",
+          step: "01",
+          title: "APIM Gateway & Auth",
+          tech: "Azure APIM • OAuth 2.0",
+          latency: "8ms",
+          status: "VERIFIED",
+          detail: "Enforces tenant isolation, JWT token validation, and rate limiting across 10,000+ enterprise users.",
+        },
+        {
+          id: "n2",
+          step: "02",
+          title: "Agentic Intent Router",
+          tech: "C# • Semantic Kernel",
+          latency: "24ms",
+          status: "ROUTED",
+          detail: "Decomposes multi-hop queries and checks Redis semantic cache (34% instant hit rate) before dispatching.",
+        },
+        {
+          id: "n3",
+          step: "03",
+          title: "Hybrid Vector + BM25",
+          tech: "Vector Search • Redis • SQLite",
+          latency: "46ms",
+          status: "RETRIEVED",
+          detail: "Parallel dense cosine similarity + BM25 keyword retrieval across 5,000+ chunked internal policy & SOP documents.",
+        },
+        {
+          id: "n4",
+          step: "04",
+          title: "Reciprocal Rank Fusion",
+          tech: "RRF Re-Ranker • Top-K Filter",
+          latency: "18ms",
+          status: "RANKED",
+          detail: "Prunes low-confidence chunks, reducing LLM context token overhead by 55% and cutting hallucinations by 85%.",
+        },
+        {
+          id: "n5",
+          step: "05",
+          title: "Grounded Synthesis",
+          tech: "Azure OpenAI GPT-4o",
+          latency: "52ms",
+          status: "STREAMING",
+          detail: "Streams grounded response with inline page-level document citations back to the Angular 17 enterprise client.",
+        },
+      ],
+    },
+    {
+      id: "doc-navigator",
+      name: "Document Navigator IDP",
+      projectRef: "Document Navigator (2025)",
+      slaLatency: "1.4s / doc",
+      slaAccuracy: "96.4%",
+      throughput: "10,000+ Docs / Day",
+      description:
+        "Event-driven Azure microservices pipeline with Dapr sidecars, Service Bus queues, and configurable extraction prompts pushing live status via SignalR.",
+      nodes: [
+        {
+          id: "d1",
+          step: "01",
+          title: "Document Ingestion",
+          tech: ".NET • Azure Blob Storage",
+          latency: "45ms",
+          status: "INGESTED",
+          detail: "Receives multi-page PDFs, TIFFs, and scanned deeds; computes SHA-256 fingerprint and stores encrypted blobs.",
+        },
+        {
+          id: "d2",
+          step: "02",
+          title: "Event Bus Dispatch",
+          tech: "Dapr Sidecar • Service Bus",
+          latency: "12ms",
+          status: "QUEUED",
+          detail: "Publishes document job events via Dapr pub/sub with dead-letter retry guarantees and zero message loss.",
+        },
+        {
+          id: "d3",
+          step: "03",
+          title: "Multi-Modal AI OCR",
+          tech: "Azure AI • Custom Prompts",
+          latency: "820ms",
+          status: "EXTRACTED",
+          detail: "Parses handwritten annotations, complex tables, and legal clauses at 96.4% field-level extraction accuracy.",
+        },
+        {
+          id: "d4",
+          step: "04",
+          title: "Validation & Analytics",
+          tech: ".NET • Redis • Power BI",
+          latency: "65ms",
+          status: "VALIDATED",
+          detail: "Applies schema validation rules, caches structured JSON output, and streams telemetry to Power BI dashboards.",
+        },
+        {
+          id: "d5",
+          step: "05",
+          title: "Real-Time Push",
+          tech: "SignalR WebSockets",
+          latency: "9ms",
+          status: "DELIVERED",
+          detail: "Pushes instant extraction completion and confidence telemetry to operator workspaces with 99.9% uptime.",
+        },
+      ],
+    },
+    {
+      id: "flow-builder",
+      name: "Flow Builder Orchestrator",
+      projectRef: "Flow Builder (2026)",
+      slaLatency: "<2 min build",
+      slaAccuracy: "20+ AI Nodes",
+      throughput: "Multi-Unit Adoption",
+      description:
+        "Natural-language-to-DAG workflow compiler built on Next.js, Microsoft Agent Framework, and .NET that turns plain English into executable enterprise automations.",
+      nodes: [
+        {
+          id: "f1",
+          step: "01",
+          title: "Natural Language Copilot",
+          tech: "Next.js • Azure OpenAI",
+          latency: "310ms",
+          status: "PARSED",
+          detail: "Converts plain-English business intent into a validated Directed Acyclic Graph (DAG) of action nodes.",
+        },
+        {
+          id: "f2",
+          step: "02",
+          title: "Agent Graph Compiler",
+          tech: "Microsoft Agent Framework",
+          latency: "42ms",
+          status: "COMPILED",
+          detail: "Binds 20+ specialized nodes (OCR, Classification, Summarization, Webhook, Email, Approval) with typed schemas.",
+        },
+        {
+          id: "f3",
+          step: "03",
+          title: "Distributed Execution",
+          tech: ".NET • Webhooks • REST",
+          latency: "180ms",
+          status: "EXECUTING",
+          detail: "Executes multi-step branching logic with state checkpointing and automatic retry on transient API failures.",
+        },
+        {
+          id: "f4",
+          step: "04",
+          title: "Live Canvas Telemetry",
+          tech: "SignalR • React Flow UI",
+          latency: "14ms",
+          status: "SYNCED",
+          detail: "Streams node-by-node execution state, token usage, and output payloads live onto the visual drag-and-drop canvas.",
+        },
+      ],
+    },
+    {
+      id: "prompt-governance",
+      name: "Prompt Lifecycle & Governance",
+      projectRef: "Prompt Management System (2026)",
+      slaLatency: "65% Less Work",
+      slaAccuracy: "500+ Prompts",
+      throughput: "40+ CQRS Endpoints",
+      description:
+        "Enterprise 'Git for Prompts' platform featuring semantic versioning, diff auditing, RBAC approval gates, and a 1-click Skill Marketplace.",
+      nodes: [
+        {
+          id: "p1",
+          step: "01",
+          title: "Prompt Studio & Diffing",
+          tech: "Next.js • Blazor • C#",
+          latency: "15ms",
+          status: "VERSIONED",
+          detail: "Tracks semantic diffs, system instructions, temperature, and variable schemas across 500+ enterprise prompts.",
+        },
+        {
+          id: "p2",
+          step: "02",
+          title: "CQRS Governance Core",
+          tech: "ASP.NET Core • Cosmos DB",
+          latency: "9ms",
+          status: "AUDITED",
+          detail: "Enforces role-based approval workflows and immutable audit logs across 40+ documented REST endpoints.",
+        },
+        {
+          id: "p3",
+          step: "03",
+          title: "Automated Benchmark Eval",
+          tech: "Azure OpenAI • Aspose",
+          latency: "410ms",
+          status: "TESTED",
+          detail: "Runs regression test suites against candidate prompt versions before promoting to production.",
+        },
+        {
+          id: "p4",
+          step: "04",
+          title: "Skill Marketplace Clone",
+          tech: "MCP • Copilot / Claude Ready",
+          latency: "6ms",
+          status: "PUBLISHED",
+          detail: "Enables 1-click cloning of approved AI skills across teams, cutting redundant prompt engineering by 65%.",
+        },
+      ],
+    },
+  ],
+};
+
+export const imagePromptRecipes: ImagePromptRecipe[] = [
+  {
+    projectId: "document-navigator",
+    projectName: "Document Navigator (2025)",
+    targetFilePath: "public/projects/document-navigator.png",
+    whyOldWasSlop:
+      "The old image had a floating 3D metallic shield, smoky green laser beams, and unreadable AI gibberish text ('Suame', 'AWig') over generic floating paper sheets.",
+    recommendedModel: "Flux.1 Pro / Ideogram 2.0 / Midjourney v6.1",
+    aspectRatio: "16:10 or 4:3 (e.g., 1600x1200)",
+    prompts: {
+      linearUiRender:
+        "High-craft dark mode enterprise software interface showcase in the style of Linear.app and Vercel design system, deep carbon obsidian background (#090A0F), showing an intelligent document processing pipeline dashboard. On the left, a crisp multi-page legal document scan with clean azure blue (#3B82F6) bounding boxes highlighting structured fields; in the center, sleek hairline routing connectors passing through a minimal microservice node labeled 'DAPR • SERVICE BUS'; on the right, a clean dark glassmorphic JSON telemetry panel with emerald green (#10B981) status indicators and a subtle throughput sparkline graph. Studio orthographic perspective, razor-sharp 1px subtle borders, diffused ambient rim lighting, ultra-clean vector precision, 8k UI design render.",
+      architecturalBlueprint:
+        "Isometric technical architecture visualization of a high-throughput document extraction engine, matte anodized black aluminum and smoked frosted glass layers stacked in precision CAD geometry on a #090A0F obsidian surface. Fine laser-etched cobalt blue (#3B82F6) and emerald (#10B981) data pathways connecting a document ingestion tray, distributed message queue blocks, and structured database crystals. Industrial design photography by Teenage Engineering and Braun, subtle depth of field, studio softbox lighting, zero text, zero clutter, hyper-detailed material textures --ar 4:3 --v 6.1 --style raw",
+      minimalistSwiss:
+        "Minimalist Swiss grid editorial illustration representing high-speed document intelligence: a sequence of translucent geometric planes transforming from chaotic paper layers on the left into an ordered, luminous grid of emerald and cobalt micro-blocks on the right, set against a deep matte charcoal background (#090A0F). Bauhaus architectural precision, subtle glass refraction, clean negative space, no text, no icons.",
+      negativePrompt:
+        "glowing human brain, humanoid robot, cyborg hand, floating security shield, green smoke, gibberish text, alien letters, watermark, blurry UI text, neon cyberpunk clutter, lens flare, stock photo people, cartoon 3d icons",
+    },
+  },
+  {
+    projectId: "flow-builder",
+    projectName: "Flow Builder (2026)",
+    targetFilePath: "public/projects/flowbuilder.png",
+    whyOldWasSlop:
+      "The old image featured a literal translucent plastic humanoid robot torso touching glowing orange diamonds on a tablet with 'Flow Builder' in cheesy glowing font.",
+    recommendedModel: "Flux.1 Pro / Ideogram 2.0 / Midjourney v6.1",
+    aspectRatio: "16:10 or 4:3 (e.g., 1600x1200)",
+    prompts: {
+      linearUiRender:
+        "Flagship dark-mode node-based workflow automation canvas UI in the exact aesthetic of Linear, Raycast, and Retool. Deep obsidian canvas (#090A0F) with a subtle 1px dot matrix grid. Five sleek dark frosted-glass action nodes connected by smooth cubic bezier curves with glowing amber (#F59E0B) and azure blue (#3B82F6) data pulses traveling along the wires. At the top, a minimal command bar with a subtle AI sparkle icon showing natural language workflow generation. Crisp geometric layout, subtle inner borders (rgba(255,255,255,0.08)), angled 15-degree product showcase shot, soft volumetric studio lighting, no robots, no human figures.",
+      architecturalBlueprint:
+        "Macro product photography of a modular hardware-inspired workflow synthesizer board, matte carbon fiber base (#090A0F) with precision-milled dark glass node tiles connected by luminous optical fiber routing paths in warm amber (#F59E0B) and electric blue (#3B82F6). Inspired by Teenage Engineering OP-1 and Vercel hardware renders, orthographic 3/4 view, shallow depth of field, cinematic studio rim lighting, hyper-clean industrial aesthetic, no text, no robots --ar 4:3 --v 6.1 --style raw",
+      minimalistSwiss:
+        "Abstract directed acyclic graph (DAG) sculpture in dark space (#090A0F): sleek matte obsidian geometric nodes suspended on a razor-thin architectural grid, linked by delicate glowing filaments of warm gold and azure light. High-contrast minimalist design, Apple keynote visual aesthetic, ultra-clean composition.",
+      negativePrompt:
+        "humanoid robot, cyborg, robot hands, plastic mannequin, glowing title text, neon orange lava, messy wires, sci-fi hologram clichés, lens flare, blurry text, cartoon style",
+    },
+  },
+  {
+    projectId: "knowledge-base-chatbot",
+    projectName: "Knowledge Base Chatbot — Agentic RAG (2025)",
+    targetFilePath: "public/projects/rag.png",
+    whyOldWasSlop:
+      "The old image was a giant glowing blue wireframe globe covered in tiny unreadable paper scraps with a floating brain icon and audio waveform.",
+    recommendedModel: "Flux.1 Pro / Ideogram 2.0 / Midjourney v6.1",
+    aspectRatio: "16:10 or 4:3 (e.g., 1600x1200)",
+    prompts: {
+      linearUiRender:
+        "Ultra-sleek dark-mode enterprise AI knowledge retrieval interface inspired by Raycast, Perplexity Pro, and Linear. Deep obsidian background (#090A0F). A central floating glassmorphic command console showing a structured AI response with clean citation pills ([DOC-01], [SOP-14]), flanked by a 3D vector embedding cluster visualization on the left (luminous azure #3B82F6 and emerald #10B981 points in a clean coordinate cube) and a millisecond latency telemetry bar ('142ms • 98.4% SCORE') on the right. Crisp 1px borders, refined typography appearance, studio UI lighting, zero clutter.",
+      architecturalBlueprint:
+        "Isometric architectural visualization of a hybrid vector + lexical search engine: a precision-cut crystal lattice cube representing high-dimensional vector space on a matte black (#090A0F) plinth, intersected by a razor-sharp beam of azure blue (#3B82F6) light that isolates three glowing emerald (#10B981) knowledge shards and routes them into a sleek glass terminal card. Minimalist industrial design, Octane render, subtle glass caustics, no brains, no globes, no text --ar 4:3 --v 6.1 --style raw",
+      minimalistSwiss:
+        "Geometric data visualization of semantic retrieval: thousands of muted slate micro-dots arranged in a clean 3D architectural matrix on a #090A0F canvas, with a precision constellation of bright azure (#3B82F6) and emerald (#10B981) nodes linked by fine hairline vectors converging into a single sharp focal prism. Stripe Press & Linear aesthetic.",
+      negativePrompt:
+        "glowing human brain, earth globe, wireframe sphere, floating paper storm, magnifying glass clipart, soundwave clipart, sci-fi hologram, neon cyan overload, gibberish text, robot head",
+    },
+  },
+  {
+    projectId: "prompt-management-system",
+    projectName: "Prompt Management System (2026)",
+    targetFilePath: "public/projects/Promtp management.png",
+    whyOldWasSlop:
+      "The old image had a glowing purple metallic tree with a literal human brain sitting in the branches surrounded by curved sci-fi monitors and gear icons.",
+    recommendedModel: "Flux.1 Pro / Ideogram 2.0 / Midjourney v6.1",
+    aspectRatio: "16:10 or 4:3 (e.g., 1600x1200)",
+    prompts: {
+      linearUiRender:
+        "High-craft dark-mode developer governance interface ('Git for Prompts') in the style of GitHub Next, Linear, and Vercel. Deep obsidian background (#090A0F). Shows a sleek split-view prompt version diff editor with emerald green (#10B981) addition highlights and subtle version tags ('v2.4 → v2.5 APPROVED'), alongside a modular grid of dark frosted-glass AI Skill Marketplace cards with subtle 1px borders and clean status badges. Isometric 12-degree perspective, studio ambient lighting, ultra-crisp developer tool aesthetic.",
+      architecturalBlueprint:
+        "Isometric hardware-meets-software visualization of version control and prompt governance: a precision Git-branch timeline crafted from brushed dark titanium and illuminated optical tracks (azure #3B82F6 and emerald #10B981) on an obsidian base (#090A0F), with modular translucent glass cartridges slotting into a central registry dock. Teenage Engineering & Apple M-series chip marketing aesthetic, studio macro lighting, zero brains, zero trees, zero text --ar 4:3 --v 6.1 --style raw",
+      minimalistSwiss:
+        "Architectural composition of versioned modular blocks: a sleek timeline of layered smoked-glass cards branching and merging with surgical precision on a dark carbon grid (#090A0F), accented with fine emerald (#10B981) and cobalt (#3B82F6) registration marks. Swiss typographic grid harmony, clean negative space.",
+      negativePrompt:
+        "human brain, metallic tree, glowing purple branches, gear clipart, curved sci-fi screens, cyberpunk neon purple, humanoid robot, lens flare, gibberish text, magic sparkles",
+    },
+  },
+  {
+    projectId: "ai-reporting-engine",
+    projectName: "AI-Powered Reporting Engine",
+    targetFilePath: "public/projects/Ai-Reporting.png",
+    whyOldWasSlop:
+      "Generic stock AI dashboard visual that lacks cohesive dark-mode architectural craft.",
+    recommendedModel: "Flux.1 Pro / Ideogram 2.0 / Midjourney v6.1",
+    aspectRatio: "16:10 or 4:3 (e.g., 1600x1200)",
+    prompts: {
+      linearUiRender:
+        "Dark-mode enterprise geospatial & automated report generation interface in the style of Linear and Mapbox Dark. Deep carbon background (#090A0F). On the left, a minimalist dark vector map of U.S. counties with a glowing azure (#3B82F6) county polygon selection; on the right, a sleek publication-ready executive PDF report assembling in real time with clean data tables, Bing grounding verification badges in emerald (#10B981), and a latency counter ('84s • 99.2% GROUNDED'). Studio perspective, 1px hairline borders, ultra-clean UI render.",
+      architecturalBlueprint:
+        "Isometric dark-mode architectural render combining a precision dark topological county map layer on the bottom with a floating frosted-glass editorial document layer above, connected by vertical azure (#3B82F6) data synthesis beams on a #090A0F background. Apple & Stripe design language, studio lighting, no text, no robots --ar 4:3 --v 6.1 --style raw",
+      minimalistSwiss:
+        "Minimalist geometric composition showing raw spatial grid coordinates transforming into a structured Swiss editorial document layout in dark mode (#090A0F) with cobalt blue and emerald accents.",
+      negativePrompt:
+        "humanoid robot, glowing brain, cartoon charts, neon clutter, gibberish text, stock photo people, lens flare",
+    },
+  },
+  {
+    projectId: "pharmaqr",
+    projectName: "PharmaQR — Authentication Platform",
+    targetFilePath: "public/projects/qr app.png",
+    whyOldWasSlop:
+      "Inconsistent visual style compared to the dark-mode enterprise systems portfolio.",
+    recommendedModel: "Flux.1 Pro / Ideogram 2.0 / Midjourney v6.1",
+    aspectRatio: "16:10 or 4:3 (e.g., 1600x1200)",
+    prompts: {
+      linearUiRender:
+        "Sleek dark-mode cryptographic product authentication interface in the style of Linear and Stripe Radar. Deep obsidian canvas (#090A0F). Centerpiece shows a precision high-density geometric QR matrix etched in luminous emerald (#10B981) and azure (#3B82F6) inside a frosted glass verification frame, flanked by an encrypted JWT token timeline and supply-chain audit log cards. Crisp 1px borders, studio lighting, zero clutter.",
+      architecturalBlueprint:
+        "Macro industrial design render of a cryptographic verification matrix: a precision-machined dark glass cube displaying a laser-etched geometric QR pattern illuminated by an emerald (#10B981) verification scan plane on a matte black (#090A0F) surface. Braun & Apple security aesthetic, shallow depth of field, no text --ar 4:3 --v 6.1 --style raw",
+      minimalistSwiss:
+        "High-contrast Swiss geometric matrix pattern in emerald (#10B981) and slate on a deep carbon (#090A0F) background, representing dual-layer cryptographic authentication.",
+      negativePrompt:
+        "pill bottles clipart, doctor cartoon, glowing brain, neon cyberpunk clutter, gibberish text, lens flare",
+    },
+  },
+];

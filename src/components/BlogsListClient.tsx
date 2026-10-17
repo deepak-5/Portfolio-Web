@@ -1,69 +1,122 @@
-'use client'
+"use client";
 
-import { BlogCard } from '@/components/BlogCard'
-import OnekoCat from '@/components/OnekoCat'
-import FadeIn from '@/components/FadeIn'
-import DiagonalPattern from '@/components/DiagonalPattern'
-import PageNavigation from '@/components/Navigation'
-import { BlogPost } from '@/types/blog'
+import React, { useState } from "react";
+import Link from "next/link";
+import { BlogPost } from "@/types/blog";
+import TopNavHeader from "@/components/TopNavHeader";
+import PromptStudioModal from "@/components/PromptStudioModal";
+import CommandPalette from "@/components/CommandPalette";
+import { ArrowLeft, ArrowUpRight, Clock, Calendar } from "lucide-react";
 
 interface BlogsListClientProps {
-  blogs: BlogPost[]
+  blogs: BlogPost[];
 }
 
 export default function BlogsListClient({ blogs }: BlogsListClientProps) {
+  const [commandOpen, setCommandOpen] = useState(false);
+  const [promptStudio, setPromptStudio] = useState<{
+    open: boolean;
+    projectId: string;
+  }>({ open: false, projectId: "document-navigator" });
+
   return (
-    <div className="min-h-screen transition-colors duration-300 relative" style={{ fontFamily: 'var(--font-hk-grotesk)' }}>
-      <OnekoCat />
-      <div className="relative mx-auto max-w-4xl min-h-screen">
-        <DiagonalPattern side="left" topOffset="0" />
-        <DiagonalPattern side="right" topOffset="0" />
-        
-        <div className="mx-auto sm:w-[calc(100%-120px)] w-full max-w-4xl sm:px-0">
-          <div className="prose dark:prose-invert max-w-none">
-            <div className="text-base">
-              <FadeIn delay={0.1} duration={0.5}>
-                <div className="sm:px-12 py-2">
-                  <div className="px-4 mb-4 sm:mb-6 pt-4 sm:pt-6">
-                    <div className="mb-4 sm:mb-6">
-                      <PageNavigation />
-                    </div>
-                    <h1 className="text-2xl sm:text-3xl font-[family-name:var(--font-instrument-serif)] italic font-medium mb-4 text-neutral-900 dark:text-neutral-100 tracking-tight">
-                      Blogs
-                    </h1>
-                    <p className="text-lg text-neutral-500 dark:text-neutral-400 tracking-wide">
-                      Technical writings and thoughts
-                    </p>
+    <div className="min-h-screen w-full bg-[#FAF9F6] dark:bg-[#090A0F] text-[#111318] dark:text-[#F4F6FB] transition-colors duration-300">
+      <TopNavHeader
+        onOpenCommandPalette={() => setCommandOpen(true)}
+        onOpenPromptStudio={(projectId) =>
+          setPromptStudio({
+            open: true,
+            projectId: projectId || "document-navigator",
+          })
+        }
+      />
+
+      <CommandPalette
+        isOpen={commandOpen}
+        onClose={() => setCommandOpen(false)}
+        onOpenPromptStudio={(projectId) =>
+          setPromptStudio({
+            open: true,
+            projectId: projectId || "document-navigator",
+          })
+        }
+      />
+
+      <PromptStudioModal
+        isOpen={promptStudio.open}
+        initialProjectId={promptStudio.projectId}
+        onClose={() => setPromptStudio((prev) => ({ ...prev, open: false }))}
+      />
+
+      <div className="w-full px-4 sm:px-8 lg:px-14 xl:px-20 py-12 sm:py-16">
+        <div className="mb-10 pb-8 border-b border-black/8 dark:border-white/[0.08]">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1.5 font-mono-tech text-xs text-blue-600 dark:text-blue-400 hover:underline mb-4"
+          >
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>Back to Portfolio Overview</span>
+          </Link>
+          <span className="font-mono-tech text-xs uppercase tracking-wider text-blue-600 dark:text-blue-400 font-semibold block mb-1">
+            [ARCHITECTURAL WRITINGS &amp; PLAYBOOKS]
+          </span>
+          <h1 className="font-display text-3xl sm:text-5xl font-bold tracking-tight">
+            Engineering Writings
+          </h1>
+          <p className="text-sm sm:text-base text-neutral-600 dark:text-[#9499AD] mt-2 max-w-2xl">
+            Production lessons on Agentic RAG, Azure OpenAI enterprise architecture, MCP/A2A protocols, and AI-assisted .NET 10 migrations.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {blogs.map((blog, index) => (
+            <Link
+              key={blog.id}
+              href={`/blogs/${blog.id}`}
+              className="group p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#11131A] border border-black/8 dark:border-white/[0.08] hover:border-blue-500/50 transition-all shadow-sm hover:shadow-xl flex flex-col justify-between space-y-6"
+            >
+              <div className="space-y-3">
+                <div className="flex items-center justify-between font-mono-tech text-xs text-neutral-500 dark:text-[#9499AD]">
+                  <span className="text-blue-600 dark:text-blue-400 font-semibold">
+                    ARTICLE 0{index + 1}
+                  </span>
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex items-center gap-1">
+                      <Clock className="w-3.5 h-3.5" />
+                      {blog.readTime}
+                    </span>
+                    <span className="inline-flex items-center gap-1">
+                      <Calendar className="w-3.5 h-3.5" />
+                      {blog.date}
+                    </span>
                   </div>
                 </div>
-              </FadeIn>
-              
-              <div className="sm:px-12 py-2">
-                <div className="px-4">
-                  {blogs.length > 0 ? (
-                    <div className="space-y-0 group">
-                      {blogs.map((blog, index) => (
-                        <FadeIn key={blog.id} delay={0.3 + index * 0.05}>
-                          <BlogCard blog={blog} />
-                        </FadeIn>
-                      ))}
-                    </div>
-                  ) : (
-                    <FadeIn delay={0.3} duration={0.5}>
-                      <div className="text-center py-16 sm:py-20">
-                        <p className="text-sm text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
-                          Coming soon
-                        </p>
-                      </div>
-                    </FadeIn>
-                  )}
-                </div>
+
+                <h2 className="font-display text-xl sm:text-2xl font-bold text-neutral-950 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  {blog.title}
+                </h2>
               </div>
-              <div className="pb-24 sm:pb-28" />
-            </div>
-          </div>
+
+              <div className="pt-4 border-t border-black/6 dark:border-white/[0.06] flex items-center justify-between">
+                <div className="flex flex-wrap gap-2">
+                  {blog.tags?.map((tag) => (
+                    <span
+                      key={tag}
+                      className="font-mono-tech text-xs px-2.5 py-1 rounded-md bg-black/[0.04] dark:bg-white/[0.05] text-neutral-700 dark:text-neutral-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <span className="inline-flex items-center gap-1 font-mono-tech text-xs text-blue-600 dark:text-blue-400">
+                  <span>Read</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </span>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </div>
-  )
+  );
 }

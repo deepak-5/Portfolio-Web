@@ -1,16 +1,16 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Blog | Kartik Labhshetwar',
-  description: 'Technical writings and thoughts on web development, AI, and more.',
+  title: 'Engineering Writings | Deepak A C',
+  description: 'Technical writings on Agentic RAG, Azure OpenAI, MCP/A2A protocols, and enterprise AI systems.',
   openGraph: {
-    title: 'Blog | Kartik Labhshetwar',
-    description: 'Technical writings and thoughts on web development, AI, and more.',
+    title: 'Engineering Writings | Deepak A C',
+    description: 'Technical writings on Agentic RAG, Azure OpenAI, MCP/A2A protocols, and enterprise AI systems.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Blog | Kartik Labhshetwar',
-    description: 'Technical writings and thoughts on web development, AI, and more.',
+    title: 'Engineering Writings | Deepak A C',
+    description: 'Technical writings on Agentic RAG, Azure OpenAI, MCP/A2A protocols, and enterprise AI systems.',
   }
-} 
+}
