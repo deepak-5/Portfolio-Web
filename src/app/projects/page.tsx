@@ -2,8 +2,8 @@ import { projects } from "@/data/projects";
 import ProjectsListClient from "@/components/ProjectsListClient";
 
 export const metadata = {
-  title: "Projects | Deepak",
-  description: "Showcase of my projects and work",
+  title: "Projects | Deepak A C",
+  description: "Showcase of production AI platforms and side projects",
 };
 
 export default function ProjectsPage() {

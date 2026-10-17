@@ -39,7 +39,7 @@ export default function SponsorsListClient({ sponsors }: SponsorsListClientProps
                         </p>
                       </div>
                       <div className="shrink-0">
-                        <SponsorButton href="https://buymeacoffee.com/code_kartik" />
+                        <SponsorButton href="https://github.com/sponsors/deepak-5" />
                       </div>
                     </div>
                   </div>

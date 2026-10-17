@@ -42,8 +42,9 @@ const getVideoSource = (videoId: string): string | null => {
 };
 
 // Custom Markdown components for beautiful rendering
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const MarkdownComponents = {
-  h2: ({ children, ...props }: any) => {
+  h2: ({ children }: any) => {
     const text = String(children);
     const isChallenge = text.includes('🎯');
     const isSolution = text.includes('💡');
@@ -84,7 +85,7 @@ const MarkdownComponents = {
       </div>
     );
   },
-  p: ({ children, ...props }: any) => {
+  p: ({ children }: any) => {
     // Check if this paragraph contains only an image (from code block)
     if (typeof children === 'string' && children.trim().startsWith('```')) {
       return null;
@@ -95,7 +96,7 @@ const MarkdownComponents = {
       </p>
     );
   },
-  strong: ({ children, ...props }: any) => (
+  strong: ({ children }: any) => (
     <strong className="font-bold text-neutral-900 dark:text-neutral-100 bg-gradient-to-r from-neutral-900 to-neutral-700 dark:from-neutral-100 dark:to-neutral-300 bg-clip-text">
       {children}
     </strong>
@@ -105,13 +106,13 @@ const MarkdownComponents = {
       {children}
     </ul>
   ),
-  li: ({ children, ...props }: any) => (
+  li: ({ children }: any) => (
     <li className="flex items-start gap-3 text-base sm:text-lg leading-relaxed text-neutral-700 dark:text-neutral-300">
       <span className="mt-1.5 h-2 w-2 rounded-full bg-gradient-to-r from-neutral-500 to-neutral-400 dark:from-neutral-400 dark:to-neutral-500 shrink-0 ring-2 ring-neutral-200 dark:ring-neutral-700" />
       <span>{children}</span>
     </li>
   ),
-  code: ({ inline, children, className, ...props }: any) => {
+  code: ({ inline, children, ...props }: any) => {
     if (inline) {
       return (
         <code className="px-2 py-0.5 bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 rounded-md text-sm font-mono border border-neutral-200 dark:border-neutral-700" {...props}>
@@ -161,6 +162,7 @@ const MarkdownComponents = {
     <hr className="my-8 border-neutral-200 dark:border-neutral-700" {...props} />
   ),
 };
+/* eslint-enable @typescript-eslint/no-explicit-any */
 
 export const ProjectCard = ({ project, isDetailed = false, allProjects = [] }: ProjectCardProps) => {
 

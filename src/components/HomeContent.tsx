@@ -1,245 +1,112 @@
 "use client";
 
-import Link from "next/link";
-import DiagonalPattern from "./DiagonalPattern";
-import BannerSection from "./BannerSection";
-import ProfileHeader from "./ProfileHeader";
-import ContentSection from "./ContentSection";
-import ContentParagraph from "./ContentParagraph";
-import SectionBorder from "./SectionBorder";
-import ExperienceContent from "./ExperienceContent";
-import Reachout from "./Reachout";
+import { motion } from "motion/react";
+import Navbar from "./Navbar";
+import Hero from "./Hero";
+import Achievements from "./Achievements";
+import ExperienceSection from "./ExperienceSection";
+import SkillsSection from "./SkillsSection";
+import ProjectShowcase from "./ProjectShowcase";
+import {
+  Certifications,
+  Education,
+} from "./CertificationsEducation";
 import CallToAction from "./CallToAction";
+import Footer from "./Footer";
 import ContributionsDisplay from "./ContributionsDisplay";
-import OpenSourceContributionsCard from "./ContributionCard";
-import TechStackMarquee from "./TechStackMarquee";
-import { Reveal } from "./Reveal";
-import { projects } from "@/data/projects";
-import { MasonryProjectCard } from "./MasonryProjectCard";
-import { blogs } from "@/data/blogs";
-import { BlogCard } from "./BlogCard";
-import { sponsors } from "@/data/sponsors";
-import SponsorShowcase from "./SponsorShowcase";
-import SponsorButton from "./SponsorButton";
-import NeumorphButton from "./NeumorphButton";
+import SectionHeading from "./SectionHeading";
+import { profile } from "@/data/resume";
+
+function AboutSection() {
+  return (
+    <section id="about" className="relative w-full py-20 sm:py-28">
+      <div className="mx-auto w-full max-w-[1600px] px-5 sm:px-8 lg:px-12">
+        <div className="grid gap-10 lg:grid-cols-[1fr_2fr] lg:gap-16">
+          <SectionHeading
+            eyebrow="About"
+            title="Professional Summary"
+            className="lg:mb-0"
+          />
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, ease: [0.19, 1, 0.22, 1] }}
+          >
+            <p className="text-lg sm:text-xl lg:text-2xl leading-relaxed tracking-tight text-neutral-600 dark:text-neutral-300">
+              {profile.summary}
+            </p>
+            <div className="mt-8 flex flex-wrap gap-2.5">
+              {[
+                "Agentic RAG",
+                "Generative AI",
+                "Azure-native",
+                "Event-Driven",
+                "AI Copilots",
+                "Workflow Automation",
+              ].map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-violet-500/20 bg-violet-500/10 px-4 py-1.5 text-sm font-medium text-violet-600 dark:border-violet-400/20 dark:bg-violet-500/10 dark:text-violet-300"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function GitHubSection() {
+  return (
+    <section className="relative w-full py-20 sm:py-28">
+      <div className="mx-auto w-full max-w-[1600px] px-5 sm:px-8 lg:px-12">
+        <SectionHeading
+          eyebrow="Open Source"
+          title="GitHub Activity"
+          description="Consistent contributions across AI frameworks, MCP servers, and developer tooling."
+        />
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
+          className="overflow-hidden rounded-2xl border border-black/5 bg-white/60 p-4 sm:p-6 backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.03]"
+        >
+          <ContributionsDisplay
+            username="deepak-5"
+            variant="compact"
+            className="w-full"
+          />
+        </motion.div>
+      </div>
+    </section>
+  );
+}
 
 export default function NewHeroSection() {
   return (
     <div
-      className="min-h-screen transition-colors duration-300 relative"
+      className="relative min-h-screen w-full overflow-x-hidden transition-colors duration-300"
       style={{ fontFamily: "var(--font-hk-grotesk)" }}
     >
-      <div className="relative mx-auto max-w-4xl">
-        {/* Diagonal Patterns */}
-        <DiagonalPattern side="left" />
-        <DiagonalPattern side="right" />
-
-        {/* Main Content */}
-        <div className="mx-auto sm:w-[calc(100%-120px)] w-full max-w-4xl sm:px-0">
-          {/* Banner Section */}
-          <Reveal delay={0.1}>
-            <BannerSection
-              bannerImage="/deepak_banner_pic.png"
-              quote="I don't just build AI features — I architect production-grade, enterprise-hardened AI systems."
-            />
-          </Reveal>
-
-          {/* Profile Header */}
-          <Reveal delay={0.2}>
-            <ProfileHeader
-              name="Deepak AC"
-              age=""
-              title="AI engineer • full-stack developer"
-              profileImage="/profilepic.jpeg"
-              socialLinks={{
-                twitter: "https://x.com/Deepakgowda05",
-                github: "https://github.com/deepak-5",
-                linkedin: "https://www.linkedin.com/in/deepak-ac/",
-                resume:
-                  "https://drive.google.com/file/d/1Mlj0N57oBI6IZEofpFriZ0Zkwj0mezsk/view?usp=sharing",
-              }}
-            />
-          </Reveal>
-
-          {/* Content Prose */}
-          <div className="prose dark:prose-invert max-w-none">
-            <div className="text-base">
-              {/* Current Role Section */}
-              <Reveal delay={0.1}>
-                <ContentSection
-                  subtitle="Senior AI Engineer | AI R&D Lead"
-                  title=""
-                  className="mt-6"
-                >
-                  <div></div>
-                </ContentSection>
-              </Reveal>
-
-              <Reveal delay={0.05}>
-                <SectionBorder className="mt-6" />
-              </Reveal>
-
-              {/* About Section */}
-              <Reveal delay={0.1}>
-                <ContentSection className="pb-6 sm:pb-8 pt-4 sm:pt-6 px-2 sm:px-0">
-                  <ContentParagraph className="mb-2 text-base sm:text-lg">
-                    <span className="font-medium dark:text-white text-black">
-                      Results-driven Senior AI Engineer
-                    </span>{" "}
-                    with 3+ years of experience architecting, developing, and
-                    deploying production-grade AI-powered enterprise
-                    applications at FNF India (Fortune 500). Specialized in
-                    building end-to-end intelligent systems leveraging Azure
-                    OpenAI, Agentic AI frameworks, RAG pipelines, and
-                    cloud-native microservices architectures. Delivered 6+
-                    mission-critical AI products from concept to production,
-                    reducing development cycles by 50%, and achieving 98%+ model
-                    accuracy in enterprise document intelligence workflows.
-                  </ContentParagraph>
-                </ContentSection>
-              </Reveal>
-
-              <Reveal delay={0.05}>
-                <SectionBorder className="mt-6" />
-              </Reveal>
-
-              {/* Experience Section */}
-              <Reveal delay={0.1}>
-                <div className="sm:px-12 py-2">
-                  <h2 className="text-base sm:text-xl mb-3 opacity-70 mt-4 sm:mt-6 px-4 font-[family-name:var(--font-instrument-serif)]">
-                    Professional Experience
-                  </h2>
-                  <div className="px-4">
-                    <ExperienceContent />
-                  </div>
-                </div>
-              </Reveal>
-
-              <Reveal delay={0.05}>
-                <SectionBorder className="mt-4" />
-              </Reveal>
-
-              {/* Proof of Work */}
-              <Reveal delay={0.1}>
-                <div className="sm:px-12 py-2">
-                  <div className="px-4 mb-4 sm:mb-6 mt-4 sm:mt-6">
-                    <h2 className="text-base sm:text-xl opacity-70 font-[family-name:var(--font-instrument-serif)]">
-                      Proof of Work
-                    </h2>
-                  </div>
-                  <div className="px-4">
-                    <div className="grid grid-cols-1 gap-4 sm:gap-3 sm:grid-cols-2 group">
-                      {projects.slice(0, 6).map((project) => (
-                        <MasonryProjectCard
-                          key={project.id}
-                          project={project}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                  <div className="px-4 flex justify-center mt-6 sm:mt-8 mb-4 sm:mb-6">
-                    <Link href="/projects">
-                      <NeumorphButton className="inline-flex items-center gap-1 px-4 py-2 text-xs sm:text-sm text-neutral-800 dark:text-white/80 hover:text-neutral-900 dark:hover:text-white">
-                        <span>View All</span>
-                        <span>→</span>
-                      </NeumorphButton>
-                    </Link>
-                  </div>
-                </div>
-              </Reveal>
-
-              <Reveal delay={0.05}>
-                <SectionBorder className="mt-0 pt-0" />
-              </Reveal>
-
-              {/* GitHub Contributions */}
-              <Reveal delay={0.1}>
-                <div className="sm:px-12 px-0 mt-4">
-                  <h2 className="text-base font-[family-name:var(--font-instrument-serif)] sm:text-xl opacity-40 leading-relaxed -tracking-[0.01em] mb-4 px-4">
-                    GitHub Contributions <span className="opacity-40">●</span>{" "}
-                    @deepak-5
-                  </h2>
-                  <div className="mb-4 sm:mb-6">
-                    <ContributionsDisplay
-                      username="deepak-5"
-                      variant="compact"
-                      className="w-full"
-                    />
-                  </div>
-                </div>
-              </Reveal>
-
-              <Reveal delay={0.05}>
-                <SectionBorder className="mt-0 pt-0" />
-              </Reveal>
-
-              {/* Tech Stack Section */}
-              <Reveal delay={0.1}>
-                <div className="sm:px-12 mt-4 sm:mt-6 mb-4 sm:mb-6">
-                  <div className="px-4">
-                    <TechStackMarquee className="w-full" />
-                  </div>
-                </div>
-              </Reveal>
-
-              <Reveal delay={0.05}>
-                <SectionBorder className="mt-0 pt-0" />
-              </Reveal>
-
-              {/* Thoughts Section */}
-              <Reveal delay={0.1}>
-                <div className="sm:px-12 py-2">
-                  <div className="px-4 mb-4 sm:mb-6 mt-4 sm:mt-6">
-                    <h2 className="text-base sm:text-xl opacity-50 font-[family-name:var(--font-instrument-serif)]">
-                      Curated Reads
-                    </h2>
-                  </div>
-                  <div className="px-4">
-                    <div className="space-y-0 group">
-                      {blogs.slice(0, 3).map((blog) => (
-                        <BlogCard key={blog.id} blog={blog} />
-                      ))}
-                    </div>
-                  </div>
-                  <div className="px-4 flex justify-center mt-6 sm:mt-8 mb-4 sm:mb-6">
-                    <Link href="/blogs">
-                      <NeumorphButton className="inline-flex items-center gap-1 px-4 py-2 text-xs sm:text-sm text-neutral-800 dark:text-white/80 hover:text-neutral-900 dark:hover:text-white">
-                        <span>View All</span>
-                        <span>→</span>
-                      </NeumorphButton>
-                    </Link>
-                  </div>
-                </div>
-              </Reveal>
-
-              <Reveal delay={0.05}>
-                <SectionBorder className="mt-0 pt-0" />
-              </Reveal>
-
-              {/* call to action*/}
-              <Reveal delay={0.1}>
-                <div className="px-4 sm:px-12">
-                  <CallToAction />
-                </div>
-              </Reveal>
-
-              <Reveal delay={0.05}>
-                <SectionBorder className="mt-0 pt-0" />
-              </Reveal>
-
-              {/* Reachout Section */}
-              <Reveal delay={0.1}>
-                <div className="mt-4 sm:mt-6">
-                  <Reachout
-                    title="Let's connect"
-                    subtitle="Find me on these platforms"
-                  />
-                </div>
-              </Reveal>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Navbar />
+      <main>
+        <Hero />
+        <AboutSection />
+        <Achievements />
+        <ExperienceSection />
+        <SkillsSection />
+        <ProjectShowcase />
+        <GitHubSection />
+        <Certifications />
+        <Education />
+        <CallToAction />
+      </main>
+      <Footer />
     </div>
   );
 }

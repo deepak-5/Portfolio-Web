@@ -23,8 +23,11 @@ export default function BannerSection({
           style={{ color: "transparent", minHeight: "100px" }}
           priority
         />
+        <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center px-4">
-          <p className="text-white text-base sm:text-xl italic font-[family-name:var(--font-instrument-serif)] text-center"></p>
+          <p className="text-white text-base sm:text-xl italic font-[family-name:var(--font-instrument-serif)] text-center">
+            {quote}
+          </p>
         </div>
       </div>
     </div>

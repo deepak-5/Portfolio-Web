@@ -181,7 +181,7 @@ export const Tooltip = ({
     }, 2000);
   };
 
-  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleClick = () => {
     // Disable tooltip on touch devices so wrapped links/buttons remain tappable.
     if (window.matchMedia("(hover: none)").matches) {
       return;

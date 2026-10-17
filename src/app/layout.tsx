@@ -7,7 +7,7 @@ import GradualBlur from "@/components/GradualBlur";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 const hkGrotesk = Hanken_Grotesk({
-  weight: ["400"],
+  weight: ["400", "500", "600", "700"],
   style: "normal",
   subsets: ["latin"],
   variable: "--font-hk-grotesk",
@@ -16,22 +16,22 @@ const hkGrotesk = Hanken_Grotesk({
 
 const instrumentSerif = Instrument_Serif({
   weight: ["400"],
-  style: "normal",
+  style: ["normal", "italic"],
   subsets: ["latin"],
   variable: "--font-instrument-serif",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://deepakac.dev"),
-  title: "Deepak AC — Senior AI Engineer",
+  title: "Deepak A C — AI Engineer | Generative AI & Agentic Systems",
   description:
-    "Senior AI Engineer & AI R&D Lead specializing in production-grade AI systems, Agentic AI, RAG pipelines, and cloud-native architectures on Azure.",
+    "AI Engineer with 3+ years building production-grade Generative AI systems — Agentic RAG, workflow automation, and intelligent copilots — on Azure-native, event-driven architectures.",
   icons: {
-    icon: "/vercel.svg",
+    icon: "/icon.png",
   },
   openGraph: {
     url: "https://deepakac.dev/",
-    siteName: "Deepak AC Portfolio",
+    siteName: "Deepak A C — AI Engineer",
     locale: "en_US",
     type: "website",
     images: [
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
         url: "/deepak_banner_pic.png",
         width: 1200,
         height: 662,
-        alt: "Deepak AC - Senior AI Engineer",
+        alt: "Deepak A C — AI Engineer | Generative AI & Agentic Systems",
       },
     ],
   },
@@ -53,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/pfp.jpg" />
+        <link rel="icon" href="/icon.png" />
         <meta
           name="google-site-verification"
           content="tMCNs2fgM6voEHBd3JsySffMFSiUCQDEFEF1iYI3-ZQ"

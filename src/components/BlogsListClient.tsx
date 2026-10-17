@@ -1,69 +1,66 @@
-'use client'
+"use client";
 
-import { BlogCard } from '@/components/BlogCard'
-import OnekoCat from '@/components/OnekoCat'
-import FadeIn from '@/components/FadeIn'
-import DiagonalPattern from '@/components/DiagonalPattern'
-import PageNavigation from '@/components/Navigation'
-import { BlogPost } from '@/types/blog'
+import { motion } from "motion/react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { BlogCard } from "@/components/BlogCard";
+import { BlogPost } from "@/types/blog";
 
 interface BlogsListClientProps {
-  blogs: BlogPost[]
+  blogs: BlogPost[];
 }
 
 export default function BlogsListClient({ blogs }: BlogsListClientProps) {
   return (
-    <div className="min-h-screen transition-colors duration-300 relative" style={{ fontFamily: 'var(--font-hk-grotesk)' }}>
-      <OnekoCat />
-      <div className="relative mx-auto max-w-4xl min-h-screen">
-        <DiagonalPattern side="left" topOffset="0" />
-        <DiagonalPattern side="right" topOffset="0" />
-        
-        <div className="mx-auto sm:w-[calc(100%-120px)] w-full max-w-4xl sm:px-0">
-          <div className="prose dark:prose-invert max-w-none">
-            <div className="text-base">
-              <FadeIn delay={0.1} duration={0.5}>
-                <div className="sm:px-12 py-2">
-                  <div className="px-4 mb-4 sm:mb-6 pt-4 sm:pt-6">
-                    <div className="mb-4 sm:mb-6">
-                      <PageNavigation />
-                    </div>
-                    <h1 className="text-2xl sm:text-3xl font-[family-name:var(--font-instrument-serif)] italic font-medium mb-4 text-neutral-900 dark:text-neutral-100 tracking-tight">
-                      Blogs
-                    </h1>
-                    <p className="text-lg text-neutral-500 dark:text-neutral-400 tracking-wide">
-                      Technical writings and thoughts
-                    </p>
-                  </div>
-                </div>
-              </FadeIn>
-              
-              <div className="sm:px-12 py-2">
-                <div className="px-4">
-                  {blogs.length > 0 ? (
-                    <div className="space-y-0 group">
-                      {blogs.map((blog, index) => (
-                        <FadeIn key={blog.id} delay={0.3 + index * 0.05}>
-                          <BlogCard blog={blog} />
-                        </FadeIn>
-                      ))}
-                    </div>
-                  ) : (
-                    <FadeIn delay={0.3} duration={0.5}>
-                      <div className="text-center py-16 sm:py-20">
-                        <p className="text-sm text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
-                          Coming soon
-                        </p>
-                      </div>
-                    </FadeIn>
-                  )}
-                </div>
-              </div>
-              <div className="pb-24 sm:pb-28" />
+    <div
+      className="min-h-screen w-full overflow-x-hidden transition-colors duration-300"
+      style={{ fontFamily: "var(--font-hk-grotesk)" }}
+    >
+      <Navbar />
+      <main className="pt-28 pb-16 sm:pt-32 sm:pb-24">
+        <div className="mx-auto w-full max-w-[1600px] px-5 sm:px-8 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
+            className="mb-10 sm:mb-14"
+          >
+            <p className="mb-3 text-xs sm:text-sm font-medium uppercase tracking-[0.2em] text-violet-500 dark:text-violet-400">
+              Writing
+            </p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-neutral-900 dark:text-white">
+              Blogs
+            </h1>
+            <p className="mt-4 max-w-2xl text-base sm:text-lg text-neutral-500 dark:text-neutral-400">
+              Technical writings and thoughts on AI engineering.
+            </p>
+          </motion.div>
+
+          {blogs.length > 0 ? (
+            <div className="group">
+              {blogs.map((blog, index) => (
+                <motion.div
+                  key={blog.id}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.1 + index * 0.05,
+                    ease: [0.19, 1, 0.22, 1],
+                  }}
+                >
+                  <BlogCard blog={blog} />
+                </motion.div>
+              ))}
             </div>
-          </div>
+          ) : (
+            <p className="py-16 text-center text-sm uppercase tracking-wide text-neutral-500">
+              Coming soon
+            </p>
+          )}
         </div>
-      </div>
+      </main>
+      <Footer />
     </div>
-  )
+  );
 }

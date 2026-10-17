@@ -61,7 +61,7 @@ export default function Reachout({
                     <div className="rounded-2xl border border-neutral-200 bg-white px-4 py-3 dark:border-neutral-800 dark:bg-neutral-900">
                       <div className="flex items-center gap-3">
                         <Image
-                          src="/pfp.jpg"
+                          src="/profilepic.jpeg"
                           alt=" Deepak"
                           width={56}
                           height={56}

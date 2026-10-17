@@ -1,78 +1,72 @@
 "use client";
 
 import Image from "next/image";
-import NeumorphButton from "./NeumorphButton";
+import { motion } from "motion/react";
+import { ArrowUpRight } from "lucide-react";
+import { profile } from "@/data/resume";
 
-interface CallToActionProps {
-  profileImage?: string;
-  profileAlt?: string;
-  linkText?: string;
-  linkUrl?: string;
-  preText?: string;
-}
-
-export default function CallToAction({
-  profileImage = "/deepak_linkedIn.png",
-  profileAlt = "Deepak AC",
-  linkText = "Book a Free Call",
-  linkUrl = "https://cal.com/deepak-ac/15min",
-  preText = "If you've read this far, let's talk about how AI can transform your business.",
-}: CallToActionProps) {
+export default function CallToAction() {
   return (
-    <div className="mt-4 sm:mt-6 pb-6 sm:pb-8 flex flex-col items-center w-full">
-      <p className="text-neutral-600 dark:text-neutral-400 font-[family-name:var(--font-instrument-serif)] italic text-base sm:text-xl mb-3 text-center">
-        {preText}
-      </p>
-      <div className="mt-3 sm:mt-0">
-        <a
-          href={linkUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group inline-flex touch-manipulation active:opacity-75"
-          style={{
-            WebkitTapHighlightColor: "transparent",
-            WebkitTouchCallout: "none",
-            WebkitUserSelect: "none",
-            userSelect: "none",
-          }}
+    <section
+      id="contact"
+      className="relative w-full overflow-hidden py-20 sm:py-28"
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-violet-600/15 via-fuchsia-500/10 to-cyan-400/15 blur-3xl"
+      />
+
+      <div className="relative z-10 mx-auto w-full max-w-[1600px] px-5 sm:px-8 lg:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: [0.19, 1, 0.22, 1] }}
+          className="flex flex-col items-center rounded-3xl border border-black/5 bg-white/60 px-6 py-14 text-center backdrop-blur-sm sm:px-12 sm:py-20 dark:border-white/10 dark:bg-white/[0.03]"
         >
-          <NeumorphButton className="px-5 py-2.5 sm:py-2 text-sm sm:text-base text-neutral-800 dark:text-white/90">
-            <div className="flex items-center gap-2.5 sm:gap-3">
-              <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden shrink-0">
+          <p className="mb-4 text-xs sm:text-sm font-medium uppercase tracking-[0.2em] text-violet-500 dark:text-violet-400">
+            Let&apos;s work together
+          </p>
+          <h2 className="max-w-4xl text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-neutral-900 dark:text-white">
+            Have an AI problem worth{" "}
+            <span className="bg-gradient-to-r from-violet-500 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent">
+              solving?
+            </span>
+          </h2>
+          <p className="mt-5 max-w-2xl text-base sm:text-lg leading-relaxed text-neutral-500 dark:text-neutral-400">
+            If you&apos;ve read this far, let&apos;s talk about how AI can
+            transform your business — from Agentic RAG systems to enterprise
+            workflow automation.
+          </p>
+
+          <div className="mt-9 flex flex-col items-center gap-4 sm:flex-row">
+            <a
+              href={profile.socials.calendly}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 rounded-full bg-neutral-900 py-2 pl-2 pr-6 text-sm font-semibold text-white shadow-xl shadow-violet-500/20 transition-all duration-300 hover:scale-[1.03] dark:bg-white dark:text-neutral-900"
+            >
+              <span className="h-9 w-9 overflow-hidden rounded-full">
                 <Image
-                  alt={profileAlt}
-                  width={28}
-                  height={28}
-                  className="w-full h-full object-cover"
-                  src={profileImage}
-                  style={{ color: "transparent" }}
+                  src="/profilepic.jpeg"
+                  alt={profile.name}
+                  width={36}
+                  height={36}
+                  className="h-full w-full object-cover"
                 />
-              </div>
-              <div className="flex items-center gap-1 overflow-hidden w-0 group-hover:w-[50px] transition-all duration-300 ease-out">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="w-2 h-2 sm:w-3 sm:h-3"
-                >
-                  <path d="M5 12h14"></path>
-                  <path d="M12 5v14"></path>
-                </svg>
-                <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-zinc-900/10 dark:bg-white/10 flex items-center justify-center text-[8px] sm:text-[10px]">
-                  You
-                </div>
-              </div>
-              <span className="whitespace-nowrap">{linkText}</span>
-            </div>
-          </NeumorphButton>
-        </a>
+              </span>
+              Book a Free Call
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+            <a
+              href={`mailto:${profile.email}`}
+              className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-6 py-3.5 text-sm font-semibold text-neutral-700 backdrop-blur transition-all duration-300 hover:border-violet-500/40 hover:text-neutral-900 dark:border-white/15 dark:bg-white/5 dark:text-neutral-200 dark:hover:text-white"
+            >
+              {profile.email}
+            </a>
+          </div>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 }

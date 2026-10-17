@@ -160,6 +160,8 @@
     view-transition-name: root;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
   html::-webkit-scrollbar {
     display: none;
@@ -171,6 +173,10 @@
   }
   body::-webkit-scrollbar {
     display: none;
+  }
+  ::selection {
+    background-color: rgb(139 92 246 / 0.25);
+    color: inherit;
   }
 }
 
