@@ -53,7 +53,7 @@ export default function TopNavHeader({
     { label: "Summary", href: isHome ? "#overview" : "/#overview" },
     { label: "Impact", href: isHome ? "#achievements" : "/#achievements" },
     { label: "Experience", href: isHome ? "#experience" : "/#experience" },
-    { label: "Projects [04]", href: isHome ? "#projects" : "/projects" },
+    { label: "Projects", href: isHome ? "#projects" : "/projects" },
     { label: "Skills Matrix", href: isHome ? "#skills" : "/#skills" },
     { label: "Credentials", href: isHome ? "#credentials" : "/#credentials" },
     { label: "Writings", href: isHome ? "#writings" : "/blogs" },

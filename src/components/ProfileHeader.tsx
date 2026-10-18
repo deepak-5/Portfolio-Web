@@ -34,7 +34,7 @@ export default function ProfileHeader({
     github: "https://github.com/deepak-5",
     linkedin: "https://www.linkedin.com/in/deepak-ac/",
     resume:
-      "https://drive.google.com/file/d/1Mlj0N57oBI6IZEofpFriZ0Zkwj0mezsk/view?usp=sharing",
+      "https://drive.google.com/file/d/11Wj5xKGIK5Ow2ToExOAl3CSb5ow5B9KD/view?usp=sharing",
   },
 }: ProfileHeaderProps) {
   const { theme, setTheme } = useTheme();
