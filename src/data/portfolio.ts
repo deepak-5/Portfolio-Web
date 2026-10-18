@@ -17,7 +17,7 @@ export const portfolioData = {
       portfolio: "https://deepakac.dev",
       twitter: "https://x.com/Deepakgowda05",
       resume:
-        "https://drive.google.com/file/d/1Mlj0N57oBI6IZEofpFriZ0Zkwj0mezsk/view?usp=sharing",
+        "https://drive.google.com/file/d/11Wj5xKGIK5Ow2ToExOAl3CSb5ow5B9KD/view?usp=sharing",
       cal: "https://cal.com/deepak-ac/15min",
     },
     summary:
